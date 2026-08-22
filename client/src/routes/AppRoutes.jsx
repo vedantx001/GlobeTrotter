@@ -5,6 +5,7 @@ import LoginPage from '../pages/auth/LoginPage';
 import RegisterPage from '../pages/auth/RegisterPage';
 import PublicRoute from './PublicRoute';
 import ProtectedRoute from './ProtectedRoute';
+import DashboardPage from '../pages/DashboardPage';
 
 const AppRoutes = () => {
   return (
@@ -23,7 +24,7 @@ const AppRoutes = () => {
       {/* Protected Routes (Authenticated only) */}
       <Route element={<ProtectedRoute />}>
         <Route element={<DashboardLayout />}>
-          <Route path="/dashboard" element={<div className="p-4">Dashboard Route Content</div>} />
+          <Route path="/dashboard" element={<DashboardPage />} />
         </Route>
       </Route>
 
