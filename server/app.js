@@ -5,6 +5,8 @@ import authRoutes from "./src/routes/auth.routes.js";
 import tripRoutes from "./src/routes/trip.routes.js";
 import budgetRoutes from "./src/routes/budget.routes.js";
 import cityRoutes from "./src/routes/city.routes.js";
+import shareRoutes from "./src/routes/share.routes.js";
+import itineraryRoutes from "./src/routes/itinerary.routes.js";
 
 const app = express();
 
@@ -41,8 +43,10 @@ app.get("/api/health", async (req, res) => {
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/trips", itineraryRoutes);
 app.use("/api/trips", tripRoutes);
 app.use("/api/trips", budgetRoutes);
+app.use("/api/trips", shareRoutes);
 app.use("/api/cities", cityRoutes);
 
 export default app;
