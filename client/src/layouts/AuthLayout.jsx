@@ -12,10 +12,10 @@ const AuthLayout = () => {
       </div>
 
       {/* Left Column: Brand & Editorial Context */}
-      <div className="relative z-10 w-full md:w-5/12 lg:w-1/2 p-8 md:p-12 lg:p-20 flex flex-col justify-between">
+      <div className="relative z-10 w-full md:w-5/12 lg:w-1/2 p-8 md:px-12 lg:px-20 lg:py-12 flex flex-col justify-between">
         <header>
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="font-display text-(length:--text-heading-sm) text-primary tracking-tight hover:opacity-80 transition-opacity"
           >
             GlobeTrotter
@@ -33,8 +33,8 @@ const AuthLayout = () => {
       </div>
 
       {/* Right Column: Auth Card Container */}
-      <main className="relative z-10 w-full md:w-7/12 lg:w-1/2 flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-20">
-        <div className="w-full max-w-[420px]">
+      <main className="relative z-10 w-full md:w-7/12 lg:w-1/2 flex items-center justify-center p-6 sm:p-8 md:px-12 lg:px-20 lg:py-8">
+        <div className="w-full">
           <Outlet />
         </div>
       </main>

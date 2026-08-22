@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthField from '../../components/auth/AuthField';
 import PasswordField from '../../components/auth/PasswordField';
+import Button from '../../components/common/Button';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -92,13 +93,9 @@ const LoginPage = () => {
           )}
 
           <div className="pt-2 flex flex-col gap-4">
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-obsidian text-warm-white py-2.5 px-4 rounded-[var(--radius-md)] font-medium text-(length:--text-body) transition-transform active:scale-[0.98] hover:bg-obsidian/90 focus:outline-none focus:ring-2 focus:ring-obsidian/50 focus:ring-offset-2 focus:ring-offset-warm-white disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? 'Sending...' : 'Send reset link'}
-            </button>
+            <Button type="submit" loading={isSubmitting}>
+              Send reset link
+            </Button>
             
             <button
               type="button"
@@ -118,7 +115,7 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="bg-warm-white rounded-[var(--radius-2xl)] shadow-[var(--shadow-card)] border border-border-subtle p-8 sm:p-10 w-full">
+    <div className="bg-warm-white rounded-[var(--radius-2xl)] shadow-[var(--shadow-card)] border border-border-subtle p-8 sm:p-10 w-full max-w-[420px] mx-auto">
       <div className="mb-8">
         <h1 className="font-display text-(length:--text-heading-md) text-primary mb-2 leading-none">
           Welcome back.
@@ -171,13 +168,9 @@ const LoginPage = () => {
         </div>
 
         <div className="pt-2">
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full bg-obsidian text-warm-white py-2.5 px-4 rounded-[var(--radius-md)] font-medium text-(length:--text-body) transition-transform active:scale-[0.98] hover:bg-obsidian/90 focus:outline-none focus:ring-2 focus:ring-obsidian/50 focus:ring-offset-2 focus:ring-offset-warm-white disabled:opacity-70 disabled:cursor-not-allowed"
-          >
-            {isSubmitting ? 'Signing in...' : 'Sign in →'}
-          </button>
+          <Button type="submit" loading={isSubmitting}>
+            Sign in →
+          </Button>
         </div>
       </form>
 
