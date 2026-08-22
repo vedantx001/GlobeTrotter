@@ -45,7 +45,32 @@ export const getTripItinerary = async (tripId) => {
 
     return {
       trip: { id: tripId, title: 'Autumn in Europe', startDate: '2026-09-12', endDate: '2026-09-25' },
-      stops: []
+      stops: [
+        {
+          id: 'stop-1',
+          stop_order: 1,
+          city: { name: 'Paris', country: 'France' },
+          startDate: '2026-09-12',
+          endDate: '2026-09-15',
+          activities: [
+            { id: 'act-1', title: 'Louvre Museum', category: 'Culture', timeSlot: 'Morning', defaultCost: 25, scheduled_date: '2026-09-12' },
+            { id: 'act-2', title: 'Seine River Cruise', category: 'Sightseeing', timeSlot: 'Afternoon', defaultCost: 18, scheduled_date: '2026-09-12' },
+            { id: 'act-3', title: 'Dinner in Le Marais', category: 'Food & Dining', timeSlot: 'Evening', defaultCost: 45, scheduled_date: '2026-09-12' },
+            { id: 'act-4', title: 'Eiffel Tower Tour', category: 'Sightseeing', timeSlot: 'Morning', defaultCost: 35, scheduled_date: '2026-09-13' }
+          ]
+        },
+        {
+          id: 'stop-2',
+          stop_order: 2,
+          city: { name: 'Rome', country: 'Italy' },
+          startDate: '2026-09-15',
+          endDate: '2026-09-18',
+          activities: [
+            { id: 'act-5', title: 'Colosseum Underground', category: 'Sightseeing', timeSlot: 'Morning', defaultCost: 40, scheduled_date: '2026-09-16' },
+            { id: 'act-6', title: 'Pasta Making Class', category: 'Food & Dining', timeSlot: 'Evening', defaultCost: 85, scheduled_date: '2026-09-16' }
+          ]
+        }
+      ]
     };
   }
 };

@@ -9,6 +9,7 @@ import DashboardPage from '../pages/DashboardPage';
 import CreateTripPage from '../pages/trips/CreateTripPage';
 import ItineraryBuilderPage from '../pages/trips/ItineraryBuilderPage';
 import MyTripsPage from '../pages/trips/MyTripsPage';
+import ItineraryViewPage from '../pages/trips/ItineraryViewPage';
 
 const AppRoutes = () => {
   return (
@@ -33,7 +34,7 @@ const AppRoutes = () => {
           <Route path="/builder/:tripId" element={<ItineraryBuilderPage />} />
           
           {/* Future Route Placeholders (Prevent 404 redirect) */}
-          <Route path="/trips/:id" element={null} />
+          <Route path="/trips/:id" element={<ItineraryViewPage />} />
           <Route path="/trips/:id/edit" element={null} />
         </Route>
       </Route>
