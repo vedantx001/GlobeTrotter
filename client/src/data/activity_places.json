@@ -1,0 +1,668 @@
+[
+  {
+    "id": "place_bir_paragliding",
+    "activityId": "activity_paragliding",
+    "cityId": "city_bir",
+    "name": "Bir Billing Paragliding",
+    "description": "World's second-highest paragliding site offering stunning Himalayan views.",
+    "rating": 4.9,
+    "popularityScore": 98,
+    "priceLevel": "$$",
+    "estimatedCost": 3000,
+    "currency": "INR",
+    "durationHours": 2,
+    "bestSeason": "Oct-Jun",
+    "tags": [
+      "mountains",
+      "himalayas"
+    ]
+  },
+  {
+    "id": "place_pokhara_paragliding",
+    "activityId": "activity_paragliding",
+    "cityId": "city_pokhara",
+    "name": "Sarangkot Paragliding",
+    "description": "Soar above Phewa Lake with the Annapurna range as your backdrop.",
+    "rating": 4.8,
+    "popularityScore": 95,
+    "priceLevel": "$$",
+    "estimatedCost": 4500,
+    "currency": "INR",
+    "durationHours": 3,
+    "bestSeason": "Sep-Nov",
+    "tags": [
+      "lake",
+      "mountains"
+    ]
+  },
+  {
+    "id": "place_interlaken_paragliding",
+    "activityId": "activity_paragliding",
+    "cityId": "city_interlaken",
+    "name": "Swiss Alps Paragliding",
+    "description": "Tandem flight over the breathtaking alpine lakes of Thun and Brienz.",
+    "rating": 4.9,
+    "popularityScore": 97,
+    "priceLevel": "$$$",
+    "estimatedCost": 15000,
+    "currency": "INR",
+    "durationHours": 2,
+    "bestSeason": "May-Sep",
+    "tags": [
+      "alps",
+      "scenic"
+    ]
+  },
+  {
+    "id": "place_queenstown_paragliding",
+    "activityId": "activity_paragliding",
+    "cityId": "city_queenstown",
+    "name": "Coronet Peak Paragliding",
+    "description": "Extreme views of the Wakatipu basin from above Queenstown.",
+    "rating": 4.7,
+    "popularityScore": 92,
+    "priceLevel": "$$$",
+    "estimatedCost": 12000,
+    "currency": "INR",
+    "durationHours": 2,
+    "bestSeason": "Dec-Mar",
+    "tags": [
+      "adventure",
+      "scenic"
+    ]
+  },
+  {
+    "id": "place_male_scuba",
+    "activityId": "activity_scuba_diving",
+    "cityId": "city_male",
+    "name": "Maldives Atoll Diving",
+    "description": "Dive among manta rays and reef sharks in crystal clear warm waters.",
+    "rating": 4.9,
+    "popularityScore": 96,
+    "priceLevel": "$$$",
+    "estimatedCost": 8000,
+    "currency": "INR",
+    "durationHours": 4,
+    "bestSeason": "Dec-Apr",
+    "tags": [
+      "marine life",
+      "coral"
+    ]
+  },
+  {
+    "id": "place_denpasar_scuba",
+    "activityId": "activity_scuba_diving",
+    "cityId": "city_denpasar",
+    "name": "Tulamben Wreck Dive",
+    "description": "Explore the famous USAT Liberty shipwreck off the coast of Bali.",
+    "rating": 4.8,
+    "popularityScore": 94,
+    "priceLevel": "$$",
+    "estimatedCost": 5000,
+    "currency": "INR",
+    "durationHours": 5,
+    "bestSeason": "May-Nov",
+    "tags": [
+      "wreck",
+      "marine life"
+    ]
+  },
+  {
+    "id": "place_port_blair_scuba",
+    "activityId": "activity_scuba_diving",
+    "cityId": "city_port_blair",
+    "name": "Havelock Island Diving",
+    "description": "Discover pristine coral reefs in the Andaman Sea.",
+    "rating": 4.7,
+    "popularityScore": 90,
+    "priceLevel": "$$",
+    "estimatedCost": 4500,
+    "currency": "INR",
+    "durationHours": 4,
+    "bestSeason": "Nov-Apr",
+    "tags": [
+      "coral",
+      "tropical"
+    ]
+  },
+  {
+    "id": "place_goa_surfing",
+    "activityId": "activity_surfing",
+    "cityId": "city_goa",
+    "name": "Arambol Surf School",
+    "description": "Beginner-friendly waves on the warm Goan coast.",
+    "rating": 4.5,
+    "popularityScore": 85,
+    "priceLevel": "$",
+    "estimatedCost": 1500,
+    "currency": "INR",
+    "durationHours": 2,
+    "bestSeason": "Nov-Mar",
+    "tags": [
+      "beach",
+      "beginner"
+    ]
+  },
+  {
+    "id": "place_denpasar_surfing",
+    "activityId": "activity_surfing",
+    "cityId": "city_denpasar",
+    "name": "Uluwatu Surf Break",
+    "description": "World-class waves for experienced surfers along dramatic cliffs.",
+    "rating": 4.9,
+    "popularityScore": 95,
+    "priceLevel": "$$",
+    "estimatedCost": 2500,
+    "currency": "INR",
+    "durationHours": 4,
+    "bestSeason": "May-Sep",
+    "tags": [
+      "advanced",
+      "cliffs"
+    ]
+  },
+  {
+    "id": "place_sydney_surfing",
+    "activityId": "activity_surfing",
+    "cityId": "city_sydney",
+    "name": "Bondi Beach Surfing",
+    "description": "Catch a wave at Australia’s most iconic beach.",
+    "rating": 4.6,
+    "popularityScore": 93,
+    "priceLevel": "$$$",
+    "estimatedCost": 5000,
+    "currency": "INR",
+    "durationHours": 3,
+    "bestSeason": "Dec-Feb",
+    "tags": [
+      "iconic",
+      "beach"
+    ]
+  },
+  {
+    "id": "place_los_angeles_surfing",
+    "activityId": "activity_surfing",
+    "cityId": "city_los_angeles",
+    "name": "Malibu Surf Session",
+    "description": "Classic Californian surfing experience.",
+    "rating": 4.7,
+    "popularityScore": 91,
+    "priceLevel": "$$$",
+    "estimatedCost": 6000,
+    "currency": "INR",
+    "durationHours": 3,
+    "bestSeason": "Jun-Sep",
+    "tags": [
+      "classic",
+      "california"
+    ]
+  },
+  {
+    "id": "place_interlaken_skiing",
+    "activityId": "activity_skiing",
+    "cityId": "city_interlaken",
+    "name": "Jungfrau Ski Region",
+    "description": "Over 200km of pistes with the Eiger, Mönch and Jungfrau backdrop.",
+    "rating": 4.9,
+    "popularityScore": 96,
+    "priceLevel": "$$$",
+    "estimatedCost": 12000,
+    "currency": "INR",
+    "durationHours": 8,
+    "bestSeason": "Dec-Apr",
+    "tags": [
+      "alps",
+      "premium"
+    ]
+  },
+  {
+    "id": "place_queenstown_skiing",
+    "activityId": "activity_skiing",
+    "cityId": "city_queenstown",
+    "name": "The Remarkables Ski Area",
+    "description": "Spectacular alpine skiing overlooking Queenstown.",
+    "rating": 4.8,
+    "popularityScore": 94,
+    "priceLevel": "$$$",
+    "estimatedCost": 9000,
+    "currency": "INR",
+    "durationHours": 7,
+    "bestSeason": "Jun-Oct",
+    "tags": [
+      "alpine",
+      "scenic"
+    ]
+  },
+  {
+    "id": "place_manali_skiing",
+    "activityId": "activity_skiing",
+    "cityId": "city_manali",
+    "name": "Solang Valley Skiing",
+    "description": "Accessible skiing slopes in the Indian Himalayas.",
+    "rating": 4.2,
+    "popularityScore": 88,
+    "priceLevel": "$",
+    "estimatedCost": 2000,
+    "currency": "INR",
+    "durationHours": 4,
+    "bestSeason": "Jan-Mar",
+    "tags": [
+      "budget",
+      "himalayas"
+    ]
+  },
+  {
+    "id": "place_rishikesh_rafting",
+    "activityId": "activity_white_water_rafting",
+    "cityId": "city_rishikesh",
+    "name": "Ganges River Rafting",
+    "description": "Thrilling rapids on the holy river Ganges.",
+    "rating": 4.7,
+    "popularityScore": 95,
+    "priceLevel": "$",
+    "estimatedCost": 1500,
+    "currency": "INR",
+    "durationHours": 4,
+    "bestSeason": "Oct-Jun",
+    "tags": [
+      "river",
+      "thrill"
+    ]
+  },
+  {
+    "id": "place_queenstown_rafting",
+    "activityId": "activity_white_water_rafting",
+    "cityId": "city_queenstown",
+    "name": "Shotover River Rafting",
+    "description": "Action-packed rafting through the spectacular Skippers Canyon.",
+    "rating": 4.8,
+    "popularityScore": 93,
+    "priceLevel": "$$$",
+    "estimatedCost": 8000,
+    "currency": "INR",
+    "durationHours": 5,
+    "bestSeason": "Oct-Apr",
+    "tags": [
+      "canyon",
+      "extreme"
+    ]
+  },
+  {
+    "id": "place_bali_rafting",
+    "activityId": "activity_white_water_rafting",
+    "cityId": "city_denpasar",
+    "name": "Ayung River Rafting",
+    "description": "Scenic rafting through lush tropical rainforests and hidden waterfalls.",
+    "rating": 4.6,
+    "popularityScore": 90,
+    "priceLevel": "$$",
+    "estimatedCost": 3500,
+    "currency": "INR",
+    "durationHours": 3,
+    "bestSeason": "Apr-Oct",
+    "tags": [
+      "jungle",
+      "scenic"
+    ]
+  },
+  {
+    "id": "place_paris_museum",
+    "activityId": "activity_museum_visit",
+    "cityId": "city_paris",
+    "name": "Louvre Museum Entry",
+    "description": "Home to the Mona Lisa and thousands of historic masterworks.",
+    "rating": 4.9,
+    "popularityScore": 99,
+    "priceLevel": "$$",
+    "estimatedCost": 2000,
+    "currency": "INR",
+    "durationHours": 4,
+    "bestSeason": "Year-round",
+    "tags": [
+      "art",
+      "history"
+    ]
+  },
+  {
+    "id": "place_rome_museum",
+    "activityId": "activity_museum_visit",
+    "cityId": "city_rome",
+    "name": "Vatican Museums",
+    "description": "Explore the Sistine Chapel and vast papal collections.",
+    "rating": 4.8,
+    "popularityScore": 98,
+    "priceLevel": "$$",
+    "estimatedCost": 2500,
+    "currency": "INR",
+    "durationHours": 4,
+    "bestSeason": "Year-round",
+    "tags": [
+      "art",
+      "religion"
+    ]
+  },
+  {
+    "id": "place_new_york_museum",
+    "activityId": "activity_museum_visit",
+    "cityId": "city_new_york",
+    "name": "The Met",
+    "description": "The Metropolitan Museum of Art, one of the world's largest art galleries.",
+    "rating": 4.9,
+    "popularityScore": 97,
+    "priceLevel": "$$",
+    "estimatedCost": 2500,
+    "currency": "INR",
+    "durationHours": 5,
+    "bestSeason": "Year-round",
+    "tags": [
+      "art",
+      "culture"
+    ]
+  },
+  {
+    "id": "place_madrid_museum",
+    "activityId": "activity_museum_visit",
+    "cityId": "city_madrid",
+    "name": "Prado Museum",
+    "description": "Spain's premier national art museum.",
+    "rating": 4.8,
+    "popularityScore": 94,
+    "priceLevel": "$$",
+    "estimatedCost": 1800,
+    "currency": "INR",
+    "durationHours": 3,
+    "bestSeason": "Year-round",
+    "tags": [
+      "art",
+      "spain"
+    ]
+  },
+  {
+    "id": "place_london_museum",
+    "activityId": "activity_museum_visit",
+    "cityId": "city_london",
+    "name": "British Museum",
+    "description": "A comprehensive collection dedicated to human history and culture.",
+    "rating": 4.8,
+    "popularityScore": 96,
+    "priceLevel": "$",
+    "estimatedCost": 500,
+    "currency": "INR",
+    "durationHours": 4,
+    "bestSeason": "Year-round",
+    "tags": [
+      "history",
+      "artifacts"
+    ]
+  },
+  {
+    "id": "place_new_delhi_museum",
+    "activityId": "activity_museum_visit",
+    "cityId": "city_new_delhi",
+    "name": "National Museum",
+    "description": "India's largest museum containing articles from the pre-historic era.",
+    "rating": 4.5,
+    "popularityScore": 85,
+    "priceLevel": "$",
+    "estimatedCost": 300,
+    "currency": "INR",
+    "durationHours": 3,
+    "bestSeason": "Year-round",
+    "tags": [
+      "history",
+      "india"
+    ]
+  },
+  {
+    "id": "place_kyoto_temples",
+    "activityId": "activity_temple_tour",
+    "cityId": "city_kyoto",
+    "name": "Kinkaku-ji & Arashiyama",
+    "description": "Visit the Golden Pavilion and serene bamboo groves.",
+    "rating": 4.9,
+    "popularityScore": 96,
+    "priceLevel": "$$",
+    "estimatedCost": 3500,
+    "currency": "INR",
+    "durationHours": 5,
+    "bestSeason": "Mar-May",
+    "tags": [
+      "zen",
+      "architecture"
+    ]
+  },
+  {
+    "id": "place_bangkok_temples",
+    "activityId": "activity_temple_tour",
+    "cityId": "city_bangkok",
+    "name": "Grand Palace & Wat Phra Kaew",
+    "description": "Explore the spectacular royal residence and the Emerald Buddha.",
+    "rating": 4.8,
+    "popularityScore": 95,
+    "priceLevel": "$$",
+    "estimatedCost": 1500,
+    "currency": "INR",
+    "durationHours": 3,
+    "bestSeason": "Nov-Feb",
+    "tags": [
+      "royal",
+      "buddhism"
+    ]
+  },
+  {
+    "id": "place_kathmandu_temples",
+    "activityId": "activity_temple_tour",
+    "cityId": "city_kathmandu",
+    "name": "Pashupatinath & Boudhanath",
+    "description": "A spiritual journey through Nepal’s most sacred Hindu and Buddhist sites.",
+    "rating": 4.7,
+    "popularityScore": 90,
+    "priceLevel": "$",
+    "estimatedCost": 800,
+    "currency": "INR",
+    "durationHours": 4,
+    "bestSeason": "Oct-Dec",
+    "tags": [
+      "spirituality",
+      "heritage"
+    ]
+  },
+  {
+    "id": "place_ahmedabad_temples",
+    "activityId": "activity_temple_tour",
+    "cityId": "city_ahmedabad",
+    "name": "Akshardham & Heritage Walk",
+    "description": "Witness magnificent carved temples and historic old-city architecture.",
+    "rating": 4.6,
+    "popularityScore": 88,
+    "priceLevel": "$",
+    "estimatedCost": 500,
+    "currency": "INR",
+    "durationHours": 4,
+    "bestSeason": "Oct-Mar",
+    "tags": [
+      "heritage",
+      "architecture"
+    ]
+  },
+  {
+    "id": "place_dubai_safari",
+    "activityId": "activity_desert_safari",
+    "cityId": "city_dubai",
+    "name": "Red Dune Desert Safari",
+    "description": "Thrilling dune bashing, camel riding, and a BBQ dinner under the stars.",
+    "rating": 4.7,
+    "popularityScore": 95,
+    "priceLevel": "$$",
+    "estimatedCost": 4500,
+    "currency": "INR",
+    "durationHours": 6,
+    "bestSeason": "Nov-Mar",
+    "tags": [
+      "dunes",
+      "dinner"
+    ]
+  },
+  {
+    "id": "place_cairo_safari",
+    "activityId": "activity_desert_safari",
+    "cityId": "city_cairo",
+    "name": "Giza Pyramids Camel Safari",
+    "description": "Ride a camel across the desert sands overlooking the ancient pyramids.",
+    "rating": 4.6,
+    "popularityScore": 92,
+    "priceLevel": "$$",
+    "estimatedCost": 2500,
+    "currency": "INR",
+    "durationHours": 3,
+    "bestSeason": "Oct-Apr",
+    "tags": [
+      "ancient",
+      "camel"
+    ]
+  },
+  {
+    "id": "place_jaipur_safari",
+    "activityId": "activity_desert_safari",
+    "cityId": "city_jaipur",
+    "name": "Thar Desert Safari",
+    "description": "Jeep safari into rural desert villages near Jaipur.",
+    "rating": 4.5,
+    "popularityScore": 85,
+    "priceLevel": "$",
+    "estimatedCost": 1800,
+    "currency": "INR",
+    "durationHours": 4,
+    "bestSeason": "Oct-Mar",
+    "tags": [
+      "rural",
+      "jeep"
+    ]
+  },
+  {
+    "id": "place_bangkok_food",
+    "activityId": "activity_street_food_tour",
+    "cityId": "city_bangkok",
+    "name": "Chinatown Night Food Tour",
+    "description": "Taste Michelin-recognized street food in vibrant Yaowarat.",
+    "rating": 4.8,
+    "popularityScore": 96,
+    "priceLevel": "$",
+    "estimatedCost": 1500,
+    "currency": "INR",
+    "durationHours": 3,
+    "bestSeason": "Year-round",
+    "tags": [
+      "night",
+      "tasty"
+    ]
+  },
+  {
+    "id": "place_mumbai_food",
+    "activityId": "activity_street_food_tour",
+    "cityId": "city_mumbai",
+    "name": "Mumbai Street Food Walk",
+    "description": "Savor authentic Pav Bhaji and Vada Pav in South Mumbai.",
+    "rating": 4.7,
+    "popularityScore": 92,
+    "priceLevel": "$",
+    "estimatedCost": 1000,
+    "currency": "INR",
+    "durationHours": 3,
+    "bestSeason": "Oct-May",
+    "tags": [
+      "spicy",
+      "authentic"
+    ]
+  },
+  {
+    "id": "place_mexico_city_food",
+    "activityId": "activity_street_food_tour",
+    "cityId": "city_mexico_city",
+    "name": "Taco & Mezcal Tasting",
+    "description": "Discover the hidden culinary gems of CDMX street stalls.",
+    "rating": 4.8,
+    "popularityScore": 94,
+    "priceLevel": "$$",
+    "estimatedCost": 2500,
+    "currency": "INR",
+    "durationHours": 4,
+    "bestSeason": "Year-round",
+    "tags": [
+      "tacos",
+      "drinks"
+    ]
+  },
+  {
+    "id": "place_florence_wine",
+    "activityId": "activity_wine_tasting",
+    "cityId": "city_florence",
+    "name": "Tuscan Vineyard Tour",
+    "description": "Sip Chianti in the rolling hills of Tuscany.",
+    "rating": 4.9,
+    "popularityScore": 94,
+    "priceLevel": "$$$",
+    "estimatedCost": 8000,
+    "currency": "INR",
+    "durationHours": 5,
+    "bestSeason": "May-Oct",
+    "tags": [
+      "wine",
+      "tuscany"
+    ]
+  },
+  {
+    "id": "place_cape_town_wine",
+    "activityId": "activity_wine_tasting",
+    "cityId": "city_cape_town",
+    "name": "Stellenbosch Wine Route",
+    "description": "Taste premium South African wines in historic estates.",
+    "rating": 4.8,
+    "popularityScore": 93,
+    "priceLevel": "$$",
+    "estimatedCost": 4000,
+    "currency": "INR",
+    "durationHours": 6,
+    "bestSeason": "Sep-Apr",
+    "tags": [
+      "wine",
+      "scenic"
+    ]
+  },
+  {
+    "id": "place_melbourne_wine",
+    "activityId": "activity_wine_tasting",
+    "cityId": "city_melbourne",
+    "name": "Yarra Valley Wine Tasting",
+    "description": "A full-day gourmet tour through Victoria's famous wine region.",
+    "rating": 4.7,
+    "popularityScore": 90,
+    "priceLevel": "$$$",
+    "estimatedCost": 7500,
+    "currency": "INR",
+    "durationHours": 7,
+    "bestSeason": "Oct-May",
+    "tags": [
+      "gourmet",
+      "valley"
+    ]
+  },
+  {
+    "id": "place_jaipur_balloon",
+    "activityId": "activity_hot_air_balloon",
+    "cityId": "city_jaipur",
+    "name": "Jaipur Sunrise Balloon",
+    "description": "Float over Amber Fort and the rugged Aravalli hills.",
+    "rating": 4.8,
+    "popularityScore": 91,
+    "priceLevel": "$$$",
+    "estimatedCost": 12000,
+    "currency": "INR",
+    "durationHours": 3,
+    "bestSeason": "Nov-Mar",
+    "tags": [
+      "sunrise",
+      "forts"
+    ]
+  }
+]

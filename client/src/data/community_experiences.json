@@ -1,0 +1,170 @@
+[
+  {
+    "id": "exp_001",
+    "user": {
+      "name": "Elena Rossi",
+      "avatarUrl": null
+    },
+    "title": "A sunset to remember in Tuscany",
+    "content": "We took a wine tasting tour just outside Florence. The Chianti was exquisite, but the views of the rolling hills as the sun went down were absolutely priceless. Highly recommend booking a late afternoon slot.",
+    "cityId": "city_florence",
+    "activityId": "activity_wine_tasting",
+    "tripTitle": "Italian Summer",
+    "createdAt": "2026-08-10T18:30:00Z",
+    "likes": 42
+  },
+  {
+    "id": "exp_002",
+    "user": {
+      "name": "Rahul Sharma",
+      "avatarUrl": null
+    },
+    "title": "First time paragliding!",
+    "content": "Bir Billing is magical. I was terrified before takeoff, but once you are in the air, the silence and the view of the Himalayas are overwhelming. The instructors were highly professional.",
+    "cityId": "city_bir",
+    "activityId": "activity_paragliding",
+    "tripTitle": "Himachal Backpacking",
+    "createdAt": "2026-08-12T09:15:00Z",
+    "likes": 128
+  },
+  {
+    "id": "exp_003",
+    "user": {
+      "name": "Sarah Chen",
+      "avatarUrl": null
+    },
+    "title": "Navigating the Louvre",
+    "content": "Tip: buy your tickets online in advance and enter through the Carrousel du Louvre to avoid the massive lines at the glass pyramid. We spent 4 hours and still only saw a fraction of it!",
+    "cityId": "city_paris",
+    "activityId": "activity_museum_visit",
+    "tripTitle": "Parisian Week",
+    "createdAt": "2026-08-15T14:20:00Z",
+    "likes": 89
+  },
+  {
+    "id": "exp_004",
+    "user": {
+      "name": "Vikram Singh",
+      "avatarUrl": null
+    },
+    "title": "Spicy Pav Bhaji at Juhu",
+    "content": "Nothing beats Mumbai street food. The flavors are intense. Make sure you have a strong stomach or stick to the highly rated stalls. A local guide makes a huge difference.",
+    "cityId": "city_mumbai",
+    "activityId": "activity_street_food_tour",
+    "tripTitle": "Mumbai Business & Leisure",
+    "createdAt": "2026-08-18T20:10:00Z",
+    "likes": 56
+  },
+  {
+    "id": "exp_005",
+    "user": {
+      "name": "James Wilson",
+      "avatarUrl": null
+    },
+    "title": "Diving in the Maldives",
+    "content": "Saw three manta rays and a sea turtle on our first dive! The water clarity here is unbelievable. Worth every penny for the advanced open water certification.",
+    "cityId": "city_male",
+    "activityId": "activity_scuba_diving",
+    "tripTitle": "Maldives Honeymoon",
+    "createdAt": "2026-08-05T11:45:00Z",
+    "likes": 210
+  },
+  {
+    "id": "exp_006",
+    "user": {
+      "name": "Anita Patel",
+      "avatarUrl": null
+    },
+    "title": "Ganges Rafting Adventure",
+    "content": "Rishikesh did not disappoint. The rapids were thrilling but felt safe with our guide. Cliff jumping midway was the highlight of the trip!",
+    "cityId": "city_rishikesh",
+    "activityId": "activity_white_water_rafting",
+    "tripTitle": "Uttarakhand Escape",
+    "createdAt": "2026-07-28T16:30:00Z",
+    "likes": 74
+  },
+  {
+    "id": "exp_007",
+    "user": {
+      "name": "Kenji Sato",
+      "avatarUrl": null
+    },
+    "title": "Autumn leaves in Kyoto",
+    "content": "The temple gardens in late November are breathtaking. The contrast of the golden pavilion with the red maple leaves is something out of a painting.",
+    "cityId": "city_kyoto",
+    "activityId": "activity_temple_tour",
+    "tripTitle": "Japan Heritage Tour",
+    "createdAt": "2026-07-15T10:00:00Z",
+    "likes": 145
+  },
+  {
+    "id": "exp_008",
+    "user": {
+      "name": "Maria Gonzalez",
+      "avatarUrl": null
+    },
+    "title": "Surfing at dawn",
+    "content": "Uluwatu is not for beginners, but watching the sunrise from the lineup is a spiritual experience. The local surf community is incredibly welcoming.",
+    "cityId": "city_denpasar",
+    "activityId": "activity_surfing",
+    "tripTitle": "Bali Surf Trip",
+    "createdAt": "2026-08-19T06:30:00Z",
+    "likes": 92
+  },
+  {
+    "id": "exp_009",
+    "user": {
+      "name": "Omar Al-Fayed",
+      "avatarUrl": null
+    },
+    "title": "Dune bashing at sunset",
+    "content": "The 4x4 ride was exhilarating. The transition from the ultra-modern city to the vast desert in just an hour is what makes Dubai so unique.",
+    "cityId": "city_dubai",
+    "activityId": "activity_desert_safari",
+    "tripTitle": "Dubai Stopover",
+    "createdAt": "2026-08-20T19:00:00Z",
+    "likes": 112
+  },
+  {
+    "id": "exp_010",
+    "user": {
+      "name": "Chloe Dubois",
+      "avatarUrl": null
+    },
+    "title": "Jungfrau Skiing",
+    "content": "The infrastructure here is unparalleled. Taking the train inside the mountain to reach the slopes is a unique Swiss experience. Snow conditions were perfect.",
+    "cityId": "city_interlaken",
+    "activityId": "activity_skiing",
+    "tripTitle": "Swiss Winter",
+    "createdAt": "2026-03-10T15:45:00Z",
+    "likes": 167
+  },
+  {
+    "id": "exp_011",
+    "user": {
+      "name": "Amit Desai",
+      "avatarUrl": null
+    },
+    "title": "Hot Air Balloon over Amber Fort",
+    "content": "Floating silently over the historic forts of Jaipur as the sun rises is an experience I will never forget. A must-do in Rajasthan.",
+    "cityId": "city_jaipur",
+    "activityId": "activity_hot_air_balloon",
+    "tripTitle": "Royal Rajasthan",
+    "createdAt": "2026-02-14T08:20:00Z",
+    "likes": 205
+  },
+  {
+    "id": "exp_012",
+    "user": {
+      "name": "David Smith",
+      "avatarUrl": null
+    },
+    "title": "The Met is massive",
+    "content": "You can easily spend three days here. Focus on a few wings rather than trying to see it all. The Egyptian art wing is spectacular.",
+    "cityId": "city_new_york",
+    "activityId": "activity_museum_visit",
+    "tripTitle": "NYC Long Weekend",
+    "createdAt": "2026-08-21T17:15:00Z",
+    "likes": 63
+  }
+]

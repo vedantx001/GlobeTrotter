@@ -1,0 +1,352 @@
+[
+  {
+    "id": "activity_paragliding",
+    "title": "Paragliding",
+    "category": "Adventure",
+    "description": "Experience the thrill of soaring high above breathtaking landscapes.",
+    "durationHours": 3,
+    "defaultCost": 2500,
+    "currency": "INR",
+    "tags": [
+      "adventure",
+      "mountains",
+      "outdoor"
+    ]
+  },
+  {
+    "id": "activity_scuba_diving",
+    "title": "Scuba Diving",
+    "category": "Adventure",
+    "description": "Explore vibrant coral reefs and marine life in crystal clear ocean waters.",
+    "durationHours": 4,
+    "defaultCost": 5000,
+    "currency": "INR",
+    "tags": [
+      "water",
+      "ocean",
+      "wildlife"
+    ]
+  },
+  {
+    "id": "activity_snorkeling",
+    "title": "Snorkeling",
+    "category": "Relaxation",
+    "description": "A relaxing surface dive to observe underwater ecosystems.",
+    "durationHours": 2,
+    "defaultCost": 1500,
+    "currency": "INR",
+    "tags": [
+      "water",
+      "relaxation",
+      "nature"
+    ]
+  },
+  {
+    "id": "activity_surfing",
+    "title": "Surfing",
+    "category": "Adventure",
+    "description": "Ride the ocean waves at some of the best surf breaks in the world.",
+    "durationHours": 3,
+    "defaultCost": 2000,
+    "currency": "INR",
+    "tags": [
+      "water",
+      "beach",
+      "sport"
+    ]
+  },
+  {
+    "id": "activity_skiing",
+    "title": "Skiing",
+    "category": "Adventure",
+    "description": "Carve down pristine snow-covered alpine slopes.",
+    "durationHours": 6,
+    "defaultCost": 8000,
+    "currency": "INR",
+    "tags": [
+      "snow",
+      "mountains",
+      "winter"
+    ]
+  },
+  {
+    "id": "activity_snowboarding",
+    "title": "Snowboarding",
+    "category": "Adventure",
+    "description": "Navigate winter terrain with thrilling snowboarding sessions.",
+    "durationHours": 6,
+    "defaultCost": 8000,
+    "currency": "INR",
+    "tags": [
+      "snow",
+      "winter",
+      "sport"
+    ]
+  },
+  {
+    "id": "activity_hiking",
+    "title": "Hiking",
+    "category": "Nature",
+    "description": "Discover scenic trails through forests, hills, and national parks.",
+    "durationHours": 5,
+    "defaultCost": 1000,
+    "currency": "INR",
+    "tags": [
+      "nature",
+      "outdoor",
+      "fitness"
+    ]
+  },
+  {
+    "id": "activity_trekking",
+    "title": "Trekking",
+    "category": "Adventure",
+    "description": "Embark on a multi-day journey traversing challenging mountainous terrains.",
+    "durationHours": 8,
+    "defaultCost": 3500,
+    "currency": "INR",
+    "tags": [
+      "mountains",
+      "endurance",
+      "nature"
+    ]
+  },
+  {
+    "id": "activity_kayaking",
+    "title": "Kayaking",
+    "category": "Nature",
+    "description": "Paddle through calm rivers, lakes, or coastal waters.",
+    "durationHours": 3,
+    "defaultCost": 1800,
+    "currency": "INR",
+    "tags": [
+      "water",
+      "peaceful",
+      "outdoor"
+    ]
+  },
+  {
+    "id": "activity_white_water_rafting",
+    "title": "White Water Rafting",
+    "category": "Adventure",
+    "description": "Navigate turbulent river rapids for an adrenaline-pumping experience.",
+    "durationHours": 4,
+    "defaultCost": 2500,
+    "currency": "INR",
+    "tags": [
+      "water",
+      "thrill",
+      "team"
+    ]
+  },
+  {
+    "id": "activity_camping",
+    "title": "Camping",
+    "category": "Nature",
+    "description": "Spend a night under the stars in a serene natural setting.",
+    "durationHours": 12,
+    "defaultCost": 2000,
+    "currency": "INR",
+    "tags": [
+      "outdoor",
+      "night",
+      "nature"
+    ]
+  },
+  {
+    "id": "activity_hot_air_balloon",
+    "title": "Hot Air Balloon Ride",
+    "category": "Sightseeing",
+    "description": "Float gently over iconic landscapes at sunrise.",
+    "durationHours": 3,
+    "defaultCost": 12000,
+    "currency": "INR",
+    "tags": [
+      "scenic",
+      "romantic",
+      "sky"
+    ]
+  },
+  {
+    "id": "activity_safari",
+    "title": "Wildlife Safari",
+    "category": "Nature",
+    "description": "Venture into national parks to witness majestic wildlife in their natural habitat.",
+    "durationHours": 5,
+    "defaultCost": 6000,
+    "currency": "INR",
+    "tags": [
+      "wildlife",
+      "photography",
+      "nature"
+    ]
+  },
+  {
+    "id": "activity_bungee_jumping",
+    "title": "Bungee Jumping",
+    "category": "Adventure",
+    "description": "Take a leap of faith from staggering heights.",
+    "durationHours": 2,
+    "defaultCost": 4000,
+    "currency": "INR",
+    "tags": [
+      "extreme",
+      "thrill",
+      "adventure"
+    ]
+  },
+  {
+    "id": "activity_skydiving",
+    "title": "Skydiving",
+    "category": "Adventure",
+    "description": "Freefall from an aircraft for the ultimate adrenaline rush.",
+    "durationHours": 4,
+    "defaultCost": 25000,
+    "currency": "INR",
+    "tags": [
+      "extreme",
+      "sky",
+      "thrill"
+    ]
+  },
+  {
+    "id": "activity_rock_climbing",
+    "title": "Rock Climbing",
+    "category": "Adventure",
+    "description": "Scale natural rock formations with professional guidance.",
+    "durationHours": 4,
+    "defaultCost": 3000,
+    "currency": "INR",
+    "tags": [
+      "fitness",
+      "mountains",
+      "outdoor"
+    ]
+  },
+  {
+    "id": "activity_cycling_tour",
+    "title": "City Cycling Tour",
+    "category": "Sightseeing",
+    "description": "Explore city highlights on a guided bicycle tour.",
+    "durationHours": 3,
+    "defaultCost": 1500,
+    "currency": "INR",
+    "tags": [
+      "city",
+      "fitness",
+      "culture"
+    ]
+  },
+  {
+    "id": "activity_wine_tasting",
+    "title": "Wine Tasting",
+    "category": "Food & Dining",
+    "description": "Sample regional wines at scenic vineyards.",
+    "durationHours": 4,
+    "defaultCost": 4500,
+    "currency": "INR",
+    "tags": [
+      "wine",
+      "relaxation",
+      "luxury"
+    ]
+  },
+  {
+    "id": "activity_museum_visit",
+    "title": "Museum & Gallery Visit",
+    "category": "Culture",
+    "description": "Discover historical artifacts and world-renowned art collections.",
+    "durationHours": 3,
+    "defaultCost": 1000,
+    "currency": "INR",
+    "tags": [
+      "art",
+      "history",
+      "indoor"
+    ]
+  },
+  {
+    "id": "activity_street_food_tour",
+    "title": "Street Food Tour",
+    "category": "Food & Dining",
+    "description": "Taste authentic local delicacies guided by a culinary expert.",
+    "durationHours": 3,
+    "defaultCost": 2000,
+    "currency": "INR",
+    "tags": [
+      "food",
+      "culture",
+      "walking"
+    ]
+  },
+  {
+    "id": "activity_temple_tour",
+    "title": "Historical Temple Tour",
+    "category": "Culture",
+    "description": "Visit ancient shrines and experience spiritual heritage.",
+    "durationHours": 4,
+    "defaultCost": 800,
+    "currency": "INR",
+    "tags": [
+      "spirituality",
+      "history",
+      "architecture"
+    ]
+  },
+  {
+    "id": "activity_boat_cruise",
+    "title": "Sunset Boat Cruise",
+    "category": "Relaxation",
+    "description": "Enjoy a leisurely cruise along a river or coastline as the sun sets.",
+    "durationHours": 2,
+    "defaultCost": 3500,
+    "currency": "INR",
+    "tags": [
+      "water",
+      "romantic",
+      "scenic"
+    ]
+  },
+  {
+    "id": "activity_desert_safari",
+    "title": "Desert Safari",
+    "category": "Adventure",
+    "description": "Dune bashing, camel rides, and dinner in the desert.",
+    "durationHours": 6,
+    "defaultCost": 5500,
+    "currency": "INR",
+    "tags": [
+      "desert",
+      "thrill",
+      "culture"
+    ]
+  },
+  {
+    "id": "activity_photography_walk",
+    "title": "Photography Walk",
+    "category": "Culture",
+    "description": "Capture the essence of a destination with a local photographer.",
+    "durationHours": 3,
+    "defaultCost": 2500,
+    "currency": "INR",
+    "tags": [
+      "art",
+      "walking",
+      "scenic"
+    ]
+  },
+  {
+    "id": "activity_cooking_class",
+    "title": "Local Cooking Class",
+    "category": "Food & Dining",
+    "description": "Learn to prepare traditional dishes using fresh local ingredients.",
+    "durationHours": 4,
+    "defaultCost": 3000,
+    "currency": "INR",
+    "tags": [
+      "food",
+      "learning",
+      "culture"
+    ]
+  }
+]

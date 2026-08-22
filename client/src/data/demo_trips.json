@@ -1,0 +1,211 @@
+[
+  {
+    "id": "demo_trip_europe",
+    "title": "European Highlights: Paris & Rome",
+    "description": "A luxurious week soaking in the art, culture, and cuisine of Europe's most romantic capitals.",
+    "countryIds": [
+      "country_fr",
+      "country_it"
+    ],
+    "startDate": "2026-09-12",
+    "endDate": "2026-09-19",
+    "budget": 350000,
+    "currency": "INR",
+    "coverImage": null,
+    "stops": [
+      {
+        "id": "stop_1_paris",
+        "cityId": "city_paris",
+        "startDate": "2026-09-12",
+        "endDate": "2026-09-15",
+        "notes": "Arriving at CDG. Staying in Le Marais.",
+        "activities": [
+          {
+            "activityPlaceId": "place_paris_museum",
+            "scheduledDate": "2026-09-13",
+            "timeSlot": "Morning",
+            "customCost": 2000
+          }
+        ]
+      },
+      {
+        "id": "stop_2_rome",
+        "cityId": "city_rome",
+        "startDate": "2026-09-15",
+        "endDate": "2026-09-19",
+        "notes": "Flight from CDG to FCO. Need to book Vatican tickets early.",
+        "activities": [
+          {
+            "activityPlaceId": "place_rome_museum",
+            "scheduledDate": "2026-09-16",
+            "timeSlot": "Afternoon",
+            "customCost": 2500
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "demo_trip_himalayas",
+    "title": "Himalayan Adrenaline",
+    "description": "An action-packed adventure through the spiritual and mountainous terrain of Northern India.",
+    "countryIds": [
+      "country_in"
+    ],
+    "startDate": "2026-10-05",
+    "endDate": "2026-10-12",
+    "budget": 65000,
+    "currency": "INR",
+    "coverImage": null,
+    "stops": [
+      {
+        "id": "stop_1_rishikesh",
+        "cityId": "city_rishikesh",
+        "startDate": "2026-10-05",
+        "endDate": "2026-10-08",
+        "notes": "Train from Delhi. Camping by the Ganges.",
+        "activities": [
+          {
+            "activityPlaceId": "place_rishikesh_rafting",
+            "scheduledDate": "2026-10-06",
+            "timeSlot": "Morning",
+            "customCost": 1500
+          }
+        ]
+      },
+      {
+        "id": "stop_2_bir",
+        "cityId": "city_bir",
+        "startDate": "2026-10-08",
+        "endDate": "2026-10-12",
+        "notes": "Bus from Rishikesh to Bir. Staying at a Tibetan monastery guest house.",
+        "activities": [
+          {
+            "activityPlaceId": "place_bir_paragliding",
+            "scheduledDate": "2026-10-10",
+            "timeSlot": "Afternoon",
+            "customCost": 3000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "demo_trip_japan",
+    "title": "Japan Heritage Discovery",
+    "description": "A contrast of neon cityscapes and serene ancient temples.",
+    "countryIds": [
+      "country_jp"
+    ],
+    "startDate": "2026-11-10",
+    "endDate": "2026-11-18",
+    "budget": 220000,
+    "currency": "INR",
+    "coverImage": null,
+    "stops": [
+      {
+        "id": "stop_1_tokyo",
+        "cityId": "city_tokyo",
+        "startDate": "2026-11-10",
+        "endDate": "2026-11-14",
+        "notes": "Landing at Haneda. Buy JR Pass.",
+        "activities": []
+      },
+      {
+        "id": "stop_2_kyoto",
+        "cityId": "city_kyoto",
+        "startDate": "2026-11-14",
+        "endDate": "2026-11-18",
+        "notes": "Shinkansen to Kyoto. Renting bicycles.",
+        "activities": [
+          {
+            "activityPlaceId": "place_kyoto_temples",
+            "scheduledDate": "2026-11-15",
+            "timeSlot": "Morning",
+            "customCost": 3500
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "demo_trip_bali",
+    "title": "Bali Surf & Relax",
+    "description": "Tropical getaway focusing on ocean activities and coastal relaxation.",
+    "countryIds": [
+      "country_id"
+    ],
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-08",
+    "budget": 95000,
+    "currency": "INR",
+    "coverImage": null,
+    "stops": [
+      {
+        "id": "stop_1_denpasar",
+        "cityId": "city_denpasar",
+        "startDate": "2026-08-01",
+        "endDate": "2026-08-08",
+        "notes": "Staying near Uluwatu for the waves.",
+        "activities": [
+          {
+            "activityPlaceId": "place_denpasar_surfing",
+            "scheduledDate": "2026-08-03",
+            "timeSlot": "Morning",
+            "customCost": 2500
+          },
+          {
+            "activityPlaceId": "place_denpasar_scuba",
+            "scheduledDate": "2026-08-05",
+            "timeSlot": "Morning",
+            "customCost": 5000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "demo_trip_rajasthan",
+    "title": "Royal Rajasthan",
+    "description": "Exploring the rich history, forts, and deserts of India's royal state.",
+    "countryIds": [
+      "country_in"
+    ],
+    "startDate": "2026-12-15",
+    "endDate": "2026-12-22",
+    "budget": 85000,
+    "currency": "INR",
+    "coverImage": null,
+    "stops": [
+      {
+        "id": "stop_1_jaipur",
+        "cityId": "city_jaipur",
+        "startDate": "2026-12-15",
+        "endDate": "2026-12-19",
+        "notes": "Staying in a heritage haveli.",
+        "activities": [
+          {
+            "activityPlaceId": "place_jaipur_balloon",
+            "scheduledDate": "2026-12-16",
+            "timeSlot": "Morning",
+            "customCost": 12000
+          },
+          {
+            "activityPlaceId": "place_jaipur_safari",
+            "scheduledDate": "2026-12-18",
+            "timeSlot": "Evening",
+            "customCost": 1800
+          }
+        ]
+      },
+      {
+        "id": "stop_2_udaipur",
+        "cityId": "city_udaipur",
+        "startDate": "2026-12-19",
+        "endDate": "2026-12-22",
+        "notes": "Romantic lake view dinner booked.",
+        "activities": []
+      }
+    ]
+  }
+]
