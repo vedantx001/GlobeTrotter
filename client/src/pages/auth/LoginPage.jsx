@@ -57,7 +57,11 @@ const LoginPage = () => {
     
     try {
       await login({ email: formData.email, password: formData.password });
-      navigate('/dashboard');
+      if (formData.email === 'admin@gmail.com') {
+        navigate('/admin');
+      } else {
+        navigate('/dashboard');
+      }
     } catch (error) {
       const message = error.response?.data?.message || 'Invalid email or password. Please try again.';
       setErrors({ submit: message });

@@ -34,6 +34,9 @@ const DashboardHeader = () => {
             <NavLink to="/trips" className={navClasses}>My Trips</NavLink>
             <NavLink to="/explore" className={navClasses}>Explore</NavLink>
             <NavLink to="/community" className={navClasses}>Community</NavLink>
+            {user?.email === 'admin@gmail.com' && (
+              <NavLink to="/admin" className={navClasses}>Admin</NavLink>
+            )}
           </nav>
         </div>
         

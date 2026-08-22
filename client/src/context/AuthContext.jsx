@@ -24,7 +24,8 @@ export const AuthProvider = ({ children }) => {
 
     // DEVELOPMENT BYPASS
     if (token === 'dev-bypass-token') {
-      setUser({ name: 'Vraj', email: 'vraj@example.com' });
+      const savedUser = localStorage.getItem('mock_user_data');
+      setUser(savedUser ? JSON.parse(savedUser) : { name: 'Vraj', email: 'vraj@example.com' });
       setIsAuthenticated(true);
       setLoading(false);
       return;
@@ -67,8 +68,9 @@ export const AuthProvider = ({ children }) => {
       console.warn("Backend unavailable. Bypassing authentication for development.");
       // DEVELOPMENT BYPASS
       const mockToken = "dev-bypass-token";
-      const mockUser = { name: "Vraj", email: credentials?.email || "vraj@example.com" };
+      const mockUser = { name: credentials?.email === 'admin@gmail.com' ? 'Admin' : 'Vraj', email: credentials?.email || "vraj@example.com" };
       localStorage.setItem(AUTH_TOKEN_STORAGE_KEY, mockToken);
+      localStorage.setItem('mock_user_data', JSON.stringify(mockUser));
       setUser(mockUser);
       setIsAuthenticated(true);
       return { token: mockToken, user: mockUser };

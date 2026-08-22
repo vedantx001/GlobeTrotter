@@ -13,6 +13,7 @@ import ItineraryViewPage from '../pages/trips/ItineraryViewPage';
 import CommunityPage from '../pages/community/CommunityPage';
 import ProfilePage from '../pages/profile/ProfilePage';
 import ExplorePage from '../pages/explore/ExplorePage';
+import AdminDashboardPage from '../pages/AdminDashboardPage';
 
 const AppRoutes = () => {
   return (
@@ -31,6 +32,7 @@ const AppRoutes = () => {
       {/* Protected Routes (Authenticated only) */}
       <Route element={<ProtectedRoute />}>
         <Route element={<DashboardLayout />}>
+          <Route path="/admin" element={<AdminDashboardPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/trips" element={<MyTripsPage />} />
           <Route path="/trips/new" element={<CreateTripPage />} />
