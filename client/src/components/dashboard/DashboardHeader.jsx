@@ -26,6 +26,7 @@ const DashboardHeader = () => {
           <nav className="hidden md:flex items-center gap-6">
             <NavLink to="/dashboard" end className={navClasses}>Dashboard</NavLink>
             <NavLink to="/trips" className={navClasses}>My Trips</NavLink>
+            <NavLink to="/explore" className={navClasses}>Explore</NavLink>
             <NavLink to="/community" className={navClasses}>Community</NavLink>
           </nav>
         </div>

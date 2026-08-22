@@ -1,0 +1,708 @@
+[
+  {
+    "id": "city_ahmedabad",
+    "name": "Ahmedabad",
+    "countryId": "country_in",
+    "region": "Gujarat",
+    "description": "India’s first UNESCO World Heritage City, famous for its rich history, cotton textiles, and vibrant street food.",
+    "costIndex": 1,
+    "popularityScore": 85,
+    "imageUrl": null,
+    "tags": [
+      "culture",
+      "food",
+      "heritage"
+    ]
+  },
+  {
+    "id": "city_mumbai",
+    "name": "Mumbai",
+    "countryId": "country_in",
+    "region": "Maharashtra",
+    "description": "The bustling financial capital of India, home to Bollywood and iconic colonial architecture.",
+    "costIndex": 2,
+    "popularityScore": 92,
+    "imageUrl": null,
+    "tags": [
+      "nightlife",
+      "culture",
+      "food"
+    ]
+  },
+  {
+    "id": "city_new_delhi",
+    "name": "New Delhi",
+    "countryId": "country_in",
+    "region": "Delhi",
+    "description": "India’s sprawling capital with a profound historical legacy and magnificent Mughal monuments.",
+    "costIndex": 2,
+    "popularityScore": 90,
+    "imageUrl": null,
+    "tags": [
+      "history",
+      "culture",
+      "food"
+    ]
+  },
+  {
+    "id": "city_jaipur",
+    "name": "Jaipur",
+    "countryId": "country_in",
+    "region": "Rajasthan",
+    "description": "The Pink City, renowned for its royal palaces, forts, and vibrant markets.",
+    "costIndex": 1,
+    "popularityScore": 95,
+    "imageUrl": null,
+    "tags": [
+      "heritage",
+      "architecture",
+      "shopping"
+    ]
+  },
+  {
+    "id": "city_goa",
+    "name": "Goa",
+    "countryId": "country_in",
+    "region": "Goa",
+    "description": "A tropical paradise known for pristine beaches, Portuguese heritage, and vibrant nightlife.",
+    "costIndex": 2,
+    "popularityScore": 94,
+    "imageUrl": null,
+    "tags": [
+      "beach",
+      "relaxation",
+      "party"
+    ]
+  },
+  {
+    "id": "city_udaipur",
+    "name": "Udaipur",
+    "countryId": "country_in",
+    "region": "Rajasthan",
+    "description": "The City of Lakes, offering a romantic ambiance with stunning palace hotels.",
+    "costIndex": 2,
+    "popularityScore": 91,
+    "imageUrl": null,
+    "tags": [
+      "romantic",
+      "heritage",
+      "lakes"
+    ]
+  },
+  {
+    "id": "city_rishikesh",
+    "name": "Rishikesh",
+    "countryId": "country_in",
+    "region": "Uttarakhand",
+    "description": "The Yoga Capital of the World, nestled in the Himalayan foothills along the Ganges.",
+    "costIndex": 1,
+    "popularityScore": 88,
+    "imageUrl": null,
+    "tags": [
+      "spirituality",
+      "adventure",
+      "nature"
+    ]
+  },
+  {
+    "id": "city_manali",
+    "name": "Manali",
+    "countryId": "country_in",
+    "region": "Himachal Pradesh",
+    "description": "A high-altitude Himalayan resort town popular for backpacking and adventure sports.",
+    "costIndex": 1,
+    "popularityScore": 89,
+    "imageUrl": null,
+    "tags": [
+      "mountains",
+      "adventure",
+      "nature"
+    ]
+  },
+  {
+    "id": "city_bir",
+    "name": "Bir",
+    "countryId": "country_in",
+    "region": "Himachal Pradesh",
+    "description": "A renowned center for ecotourism, spiritual studies, and world-class paragliding.",
+    "costIndex": 1,
+    "popularityScore": 82,
+    "imageUrl": null,
+    "tags": [
+      "adventure",
+      "mountains",
+      "spirituality"
+    ]
+  },
+  {
+    "id": "city_port_blair",
+    "name": "Port Blair",
+    "countryId": "country_in",
+    "region": "Andaman and Nicobar Islands",
+    "description": "The gateway to the pristine Andaman islands, offering rich history and scuba diving.",
+    "costIndex": 2,
+    "popularityScore": 84,
+    "imageUrl": null,
+    "tags": [
+      "island",
+      "history",
+      "diving"
+    ]
+  },
+  {
+    "id": "city_paris",
+    "name": "Paris",
+    "countryId": "country_fr",
+    "region": "Île-de-France",
+    "description": "The romantic capital of France, globally recognized for its art, fashion, gastronomy, and culture.",
+    "costIndex": 3,
+    "popularityScore": 98,
+    "imageUrl": null,
+    "tags": [
+      "culture",
+      "romantic",
+      "art",
+      "food"
+    ]
+  },
+  {
+    "id": "city_rome",
+    "name": "Rome",
+    "countryId": "country_it",
+    "region": "Lazio",
+    "description": "The Eternal City, a sprawling metropolis holding nearly 3,000 years of globally influential art, architecture, and culture.",
+    "costIndex": 3,
+    "popularityScore": 97,
+    "imageUrl": null,
+    "tags": [
+      "history",
+      "architecture",
+      "culture"
+    ]
+  },
+  {
+    "id": "city_florence",
+    "name": "Florence",
+    "countryId": "country_it",
+    "region": "Tuscany",
+    "description": "The birthplace of the Renaissance, home to masterpieces of art and architecture.",
+    "costIndex": 3,
+    "popularityScore": 94,
+    "imageUrl": null,
+    "tags": [
+      "art",
+      "history",
+      "romantic"
+    ]
+  },
+  {
+    "id": "city_venice",
+    "name": "Venice",
+    "countryId": "country_it",
+    "region": "Veneto",
+    "description": "The iconic city built on more than 100 small islands in a lagoon in the Adriatic Sea.",
+    "costIndex": 3,
+    "popularityScore": 95,
+    "imageUrl": null,
+    "tags": [
+      "romantic",
+      "architecture",
+      "water"
+    ]
+  },
+  {
+    "id": "city_barcelona",
+    "name": "Barcelona",
+    "countryId": "country_es",
+    "region": "Catalonia",
+    "description": "A vibrant seaside city renowned for its striking modernist architecture and lively culinary scene.",
+    "costIndex": 2,
+    "popularityScore": 96,
+    "imageUrl": null,
+    "tags": [
+      "architecture",
+      "beach",
+      "culture"
+    ]
+  },
+  {
+    "id": "city_madrid",
+    "name": "Madrid",
+    "countryId": "country_es",
+    "region": "Community of Madrid",
+    "description": "The elegant Spanish capital, known for its rich repositories of European art.",
+    "costIndex": 2,
+    "popularityScore": 93,
+    "imageUrl": null,
+    "tags": [
+      "art",
+      "food",
+      "nightlife"
+    ]
+  },
+  {
+    "id": "city_lisbon",
+    "name": "Lisbon",
+    "countryId": "country_pt",
+    "region": "Lisbon",
+    "description": "Portugal’s hilly, coastal capital city boasting pastel-colored buildings and iconic yellow trams.",
+    "costIndex": 2,
+    "popularityScore": 92,
+    "imageUrl": null,
+    "tags": [
+      "coastal",
+      "food",
+      "architecture"
+    ]
+  },
+  {
+    "id": "city_amsterdam",
+    "name": "Amsterdam",
+    "countryId": "country_nl",
+    "region": "North Holland",
+    "description": "Known for its artistic heritage, elaborate canal system, and narrow houses with gabled facades.",
+    "costIndex": 3,
+    "popularityScore": 94,
+    "imageUrl": null,
+    "tags": [
+      "culture",
+      "cycling",
+      "canals"
+    ]
+  },
+  {
+    "id": "city_london",
+    "name": "London",
+    "countryId": "country_uk",
+    "region": "England",
+    "description": "The dynamic capital of the UK, offering an unparalleled mix of historic grandeur and modern culture.",
+    "costIndex": 3,
+    "popularityScore": 97,
+    "imageUrl": null,
+    "tags": [
+      "history",
+      "shopping",
+      "culture"
+    ]
+  },
+  {
+    "id": "city_zurich",
+    "name": "Zurich",
+    "countryId": "country_ch",
+    "region": "Zurich",
+    "description": "A global center for banking and finance, set at the north end of Lake Zurich in northern Switzerland.",
+    "costIndex": 3,
+    "popularityScore": 89,
+    "imageUrl": null,
+    "tags": [
+      "shopping",
+      "lakes",
+      "finance"
+    ]
+  },
+  {
+    "id": "city_interlaken",
+    "name": "Interlaken",
+    "countryId": "country_ch",
+    "region": "Bern",
+    "description": "A traditional resort town in the mountainous Bernese Oberland region of central Switzerland.",
+    "costIndex": 3,
+    "popularityScore": 91,
+    "imageUrl": null,
+    "tags": [
+      "mountains",
+      "adventure",
+      "nature"
+    ]
+  },
+  {
+    "id": "city_athens",
+    "name": "Athens",
+    "countryId": "country_gr",
+    "region": "Attica",
+    "description": "The historical capital of Europe, dominated by 5th-century BC landmarks.",
+    "costIndex": 2,
+    "popularityScore": 90,
+    "imageUrl": null,
+    "tags": [
+      "history",
+      "ancient",
+      "culture"
+    ]
+  },
+  {
+    "id": "city_santorini",
+    "name": "Santorini",
+    "countryId": "country_gr",
+    "region": "South Aegean",
+    "description": "A stunning volcanic island in the Aegean Sea, famous for its whitewashed, cubiform houses.",
+    "costIndex": 3,
+    "popularityScore": 95,
+    "imageUrl": null,
+    "tags": [
+      "romantic",
+      "island",
+      "views"
+    ]
+  },
+  {
+    "id": "city_vienna",
+    "name": "Vienna",
+    "countryId": "country_at",
+    "region": "Vienna",
+    "description": "Austria’s capital lies in the country’s east on the Danube River, known for its imperial palaces.",
+    "costIndex": 3,
+    "popularityScore": 92,
+    "imageUrl": null,
+    "tags": [
+      "music",
+      "architecture",
+      "culture"
+    ]
+  },
+  {
+    "id": "city_prague",
+    "name": "Prague",
+    "countryId": "country_cz",
+    "region": "Prague",
+    "description": "The City of a Hundred Spires, known for its Old Town Square and colorful baroque buildings.",
+    "costIndex": 2,
+    "popularityScore": 94,
+    "imageUrl": null,
+    "tags": [
+      "history",
+      "architecture",
+      "beer"
+    ]
+  },
+  {
+    "id": "city_budapest",
+    "name": "Budapest",
+    "countryId": "country_hu",
+    "region": "Central Hungary",
+    "description": "Hungary’s capital is bisected by the River Danube, rich with thermal baths and striking architecture.",
+    "costIndex": 1,
+    "popularityScore": 93,
+    "imageUrl": null,
+    "tags": [
+      "thermal baths",
+      "architecture",
+      "nightlife"
+    ]
+  },
+  {
+    "id": "city_reykjavik",
+    "name": "Reykjavik",
+    "countryId": "country_is",
+    "region": "Capital Region",
+    "description": "On the coast of Iceland, it is the country's capital and largest city, offering geothermal wonders.",
+    "costIndex": 3,
+    "popularityScore": 88,
+    "imageUrl": null,
+    "tags": [
+      "nature",
+      "geothermal",
+      "northern lights"
+    ]
+  },
+  {
+    "id": "city_tokyo",
+    "name": "Tokyo",
+    "countryId": "country_jp",
+    "region": "Kanto",
+    "description": "Japan’s busy capital, mixing the ultramodern and the traditional, from neon-lit skyscrapers to historic temples.",
+    "costIndex": 3,
+    "popularityScore": 98,
+    "imageUrl": null,
+    "tags": [
+      "modern",
+      "food",
+      "culture"
+    ]
+  },
+  {
+    "id": "city_kyoto",
+    "name": "Kyoto",
+    "countryId": "country_jp",
+    "region": "Kansai",
+    "description": "Once the capital of Japan, famous for its numerous classical Buddhist temples, gardens, and imperial palaces.",
+    "costIndex": 3,
+    "popularityScore": 96,
+    "imageUrl": null,
+    "tags": [
+      "temples",
+      "history",
+      "culture"
+    ]
+  },
+  {
+    "id": "city_seoul",
+    "name": "Seoul",
+    "countryId": "country_kr",
+    "region": "Seoul",
+    "description": "A huge metropolis where modern skyscrapers, high-tech subways and pop culture meet Buddhist temples.",
+    "costIndex": 2,
+    "popularityScore": 94,
+    "imageUrl": null,
+    "tags": [
+      "modern",
+      "food",
+      "shopping"
+    ]
+  },
+  {
+    "id": "city_bangkok",
+    "name": "Bangkok",
+    "countryId": "country_th",
+    "region": "Bangkok",
+    "description": "Thailand’s bustling capital, known for ornate shrines and vibrant street life.",
+    "costIndex": 1,
+    "popularityScore": 95,
+    "imageUrl": null,
+    "tags": [
+      "street food",
+      "temples",
+      "nightlife"
+    ]
+  },
+  {
+    "id": "city_singapore",
+    "name": "Singapore",
+    "countryId": "country_sg",
+    "region": "Singapore",
+    "description": "An island city-state off southern Malaysia, a global financial center with a tropical climate.",
+    "costIndex": 3,
+    "popularityScore": 92,
+    "imageUrl": null,
+    "tags": [
+      "shopping",
+      "food",
+      "modern"
+    ]
+  },
+  {
+    "id": "city_denpasar",
+    "name": "Denpasar",
+    "countryId": "country_id",
+    "region": "Bali",
+    "description": "The vibrant capital city of Bali, serving as the main gateway to the island's tropical wonders.",
+    "costIndex": 1,
+    "popularityScore": 96,
+    "imageUrl": null,
+    "tags": [
+      "island",
+      "culture",
+      "relaxation"
+    ]
+  },
+  {
+    "id": "city_kathmandu",
+    "name": "Kathmandu",
+    "countryId": "country_np",
+    "region": "Bagmati",
+    "description": "Nepal’s capital, set in a valley surrounded by the Himalayan mountains.",
+    "costIndex": 1,
+    "popularityScore": 85,
+    "imageUrl": null,
+    "tags": [
+      "culture",
+      "mountains",
+      "spirituality"
+    ]
+  },
+  {
+    "id": "city_pokhara",
+    "name": "Pokhara",
+    "countryId": "country_np",
+    "region": "Gandaki",
+    "description": "A city on Phewa Lake, known as a gateway to the Annapurna Circuit.",
+    "costIndex": 1,
+    "popularityScore": 89,
+    "imageUrl": null,
+    "tags": [
+      "mountains",
+      "lakes",
+      "adventure"
+    ]
+  },
+  {
+    "id": "city_dubai",
+    "name": "Dubai",
+    "countryId": "country_ae",
+    "region": "Dubai",
+    "description": "A city and emirate known for luxury shopping, ultramodern architecture and a lively nightlife scene.",
+    "costIndex": 3,
+    "popularityScore": 93,
+    "imageUrl": null,
+    "tags": [
+      "luxury",
+      "shopping",
+      "modern"
+    ]
+  },
+  {
+    "id": "city_new_york",
+    "name": "New York City",
+    "countryId": "country_us",
+    "region": "New York",
+    "description": "The city that never sleeps, offering iconic landmarks and world-class cultural institutions.",
+    "costIndex": 3,
+    "popularityScore": 98,
+    "imageUrl": null,
+    "tags": [
+      "culture",
+      "food",
+      "entertainment"
+    ]
+  },
+  {
+    "id": "city_los_angeles",
+    "name": "Los Angeles",
+    "countryId": "country_us",
+    "region": "California",
+    "description": "A sprawling Southern California city and the center of the nation’s film and television industry.",
+    "costIndex": 3,
+    "popularityScore": 92,
+    "imageUrl": null,
+    "tags": [
+      "entertainment",
+      "beach",
+      "lifestyle"
+    ]
+  },
+  {
+    "id": "city_vancouver",
+    "name": "Vancouver",
+    "countryId": "country_ca",
+    "region": "British Columbia",
+    "description": "A bustling west coast seaport in British Columbia, surrounded by mountains and popular for outdoor pursuits.",
+    "costIndex": 3,
+    "popularityScore": 90,
+    "imageUrl": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "coastal"
+    ]
+  },
+  {
+    "id": "city_mexico_city",
+    "name": "Mexico City",
+    "countryId": "country_mx",
+    "region": "CDMX",
+    "description": "The densely populated, high-altitude capital of Mexico, known for its historic center and vibrant culture.",
+    "costIndex": 1,
+    "popularityScore": 91,
+    "imageUrl": null,
+    "tags": [
+      "food",
+      "history",
+      "art"
+    ]
+  },
+  {
+    "id": "city_sydney",
+    "name": "Sydney",
+    "countryId": "country_au",
+    "region": "New South Wales",
+    "description": "Best known for its harbourfront Sydney Opera House, with a massive Darling Harbour and the smaller Circular Quay.",
+    "costIndex": 3,
+    "popularityScore": 93,
+    "imageUrl": null,
+    "tags": [
+      "coastal",
+      "iconic",
+      "beach"
+    ]
+  },
+  {
+    "id": "city_melbourne",
+    "name": "Melbourne",
+    "countryId": "country_au",
+    "region": "Victoria",
+    "description": "The coastal capital of the southeastern Australian state of Victoria, celebrated for its arts and coffee culture.",
+    "costIndex": 3,
+    "popularityScore": 91,
+    "imageUrl": null,
+    "tags": [
+      "culture",
+      "coffee",
+      "arts"
+    ]
+  },
+  {
+    "id": "city_queenstown",
+    "name": "Queenstown",
+    "countryId": "country_nz",
+    "region": "Otago",
+    "description": "New Zealand’s adventure capital, sitting on the shores of the South Island’s Lake Wakatipu.",
+    "costIndex": 3,
+    "popularityScore": 94,
+    "imageUrl": null,
+    "tags": [
+      "adventure",
+      "mountains",
+      "lakes"
+    ]
+  },
+  {
+    "id": "city_cairo",
+    "name": "Cairo",
+    "countryId": "country_eg",
+    "region": "Cairo",
+    "description": "Egypt’s sprawling capital, set on the Nile River and heavily associated with ancient history.",
+    "costIndex": 1,
+    "popularityScore": 89,
+    "imageUrl": null,
+    "tags": [
+      "ancient",
+      "history",
+      "culture"
+    ]
+  },
+  {
+    "id": "city_cape_town",
+    "name": "Cape Town",
+    "countryId": "country_za",
+    "region": "Western Cape",
+    "description": "A port city on South Africa’s southwest coast, beneath the imposing Table Mountain.",
+    "costIndex": 2,
+    "popularityScore": 94,
+    "imageUrl": null,
+    "tags": [
+      "nature",
+      "coastal",
+      "food"
+    ]
+  },
+  {
+    "id": "city_marrakesh",
+    "name": "Marrakesh",
+    "countryId": "country_ma",
+    "region": "Marrakesh-Safi",
+    "description": "A former imperial city in western Morocco, home to mosques, palaces and gardens.",
+    "costIndex": 2,
+    "popularityScore": 92,
+    "imageUrl": null,
+    "tags": [
+      "culture",
+      "markets",
+      "architecture"
+    ]
+  },
+  {
+    "id": "city_male",
+    "name": "Malé",
+    "countryId": "country_mv",
+    "region": "Kaafu Atoll",
+    "description": "The densely populated capital of the Maldives, known for its mosques and colorful buildings.",
+    "costIndex": 3,
+    "popularityScore": 88,
+    "imageUrl": null,
+    "tags": [
+      "island",
+      "ocean",
+      "resorts"
+    ]
+  }
+]
