@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { X, Search, MapPin, Globe, Filter } from 'lucide-react';
 import Button from '../common/Button';
+import Select from '../common/Select';
 import { getTripSuggestions } from '../../api/trips_api';
 import countriesData from '../../data/countries.json';
 
@@ -212,20 +213,20 @@ const CitySearchModal = ({ isOpen, onClose, onAdd, trip }) => {
                   </div>
 
                   {/* Country Filter Select Dropdown */}
-                  <div className="relative sm:col-span-2">
-                    <select
+                  <div className="sm:col-span-2">
+                    <Select
                       value={selectedCountryFilter}
                       onChange={(e) => setSelectedCountryFilter(e.target.value)}
-                      className="w-full pl-3 pr-8 py-2 rounded-full border border-border-subtle bg-surface-primary text-xs font-medium text-primary focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 transition-all shadow-2xs font-sans appearance-none cursor-pointer"
-                    >
-                      <option value="">All Countries</option>
-                      {availableCountries.map(country => (
-                        <option key={country} value={country}>
-                          {country}
-                        </option>
-                      ))}
-                    </select>
-                    <Filter size={12} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-stone/60 pointer-events-none" />
+                      placeholder="All Countries"
+                      options={[
+                        { value: '', label: 'All Countries' },
+                        ...availableCountries.map(country => ({
+                          value: country,
+                          label: country
+                        }))
+                      ]}
+                      size="sm"
+                    />
                   </div>
 
                 </div>

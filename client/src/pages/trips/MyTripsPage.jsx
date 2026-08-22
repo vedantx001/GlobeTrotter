@@ -8,6 +8,7 @@ import TripFilter from '../../components/trips/TripFilter';
 import DeleteTripDialog from '../../components/trips/DeleteTripDialog';
 import EditTripModal from '../../components/trips/EditTripModal';
 import Button from '../../components/common/Button';
+import Select from '../../components/common/Select';
 
 const MyTripsPage = () => {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ const MyTripsPage = () => {
   const [error, setError] = useState(null);
   
   const [filter, setFilter] = useState('All');
+  const [sortBy, setSortBy] = useState('Newest');
   const [searchQuery, setSearchQuery] = useState('');
   const [debouncedSearchQuery, setDebouncedSearchQuery] = useState('');
   
@@ -77,12 +79,12 @@ const MyTripsPage = () => {
     }
   };
 
-  // Client-side filtering and searching
+  // Client-side filtering, searching, and sorting
   const filteredTrips = useMemo(() => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    return trips.filter(trip => {
+    const list = trips.filter(trip => {
       // 1. Filter by status
       if (filter === 'Upcoming') {
         const startDate = new Date(trip.startDate);
@@ -104,7 +106,29 @@ const MyTripsPage = () => {
       
       return true;
     });
-  }, [trips, filter, debouncedSearchQuery]);
+
+    // 3. Sort
+    list.sort((a, b) => {
+      if (sortBy === 'Newest') {
+        return new Date(b.startDate || 0) - new Date(a.startDate || 0);
+      }
+      if (sortBy === 'Oldest') {
+        return new Date(a.startDate || 0) - new Date(b.startDate || 0);
+      }
+      if (sortBy === 'Title') {
+        return (a.title || '').localeCompare(b.title || '');
+      }
+      if (sortBy === 'BudgetHigh') {
+        return Number(b.total_budget ?? b.budget ?? 0) - Number(a.total_budget ?? a.budget ?? 0);
+      }
+      if (sortBy === 'BudgetLow') {
+        return Number(a.total_budget ?? a.budget ?? 0) - Number(b.total_budget ?? b.budget ?? 0);
+      }
+      return 0;
+    });
+
+    return list;
+  }, [trips, filter, debouncedSearchQuery, sortBy]);
 
   return (
     <div className="w-full pb-20 pt-2">
@@ -132,29 +156,46 @@ const MyTripsPage = () => {
         </div>
       </div>
 
-      {/* Controls: Segmented Filter & Search */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      {/* Controls: Segmented Filter, Search & Sort */}
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8">
         <TripFilter currentFilter={filter} onFilterChange={setFilter} />
         
-        <div className="relative w-full sm:w-72">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone" size={15} strokeWidth={1.5} />
-          <input
-            type="text"
-            placeholder="Search trips..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-8 py-2 rounded-full border border-border-subtle bg-surface-primary focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta/30 transition-all text-xs text-primary placeholder:text-stone/60"
-          />
-          {searchQuery && (
-            <button 
-              type="button"
-              onClick={() => setSearchQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-stone hover:text-primary transition-colors cursor-pointer"
-              aria-label="Clear search"
-            >
-              ×
-            </button>
-          )}
+        <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
+          <div className="relative w-full sm:w-64">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone" size={15} strokeWidth={1.5} />
+            <input
+              type="text"
+              placeholder="Search trips..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-9 pr-8 py-2 rounded-full border border-border-subtle bg-surface-primary focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta/30 transition-all text-xs text-primary placeholder:text-stone/60"
+            />
+            {searchQuery && (
+              <button 
+                type="button"
+                onClick={() => setSearchQuery('')}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-stone hover:text-primary transition-colors cursor-pointer"
+                aria-label="Clear search"
+              >
+                ×
+              </button>
+            )}
+          </div>
+
+          <div className="w-full sm:w-48 shrink-0">
+            <Select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              options={[
+                { value: 'Newest', label: 'Newest First' },
+                { value: 'Oldest', label: 'Oldest First' },
+                { value: 'Title', label: 'Title (A-Z)' },
+                { value: 'BudgetHigh', label: 'Budget (High → Low)' },
+                { value: 'BudgetLow', label: 'Budget (Low → High)' },
+              ]}
+              size="sm"
+            />
+          </div>
         </div>
       </div>
 
