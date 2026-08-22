@@ -51,64 +51,66 @@ const ProfilePage = () => {
     <div className="w-full max-w-6xl mx-auto pb-24">
       
       {/* Profile Header Section */}
-      <div className="bg-surface-primary rounded-[var(--radius-3xl)] p-8 md:p-12 mb-16 border border-border-default shadow-[var(--shadow-soft)] flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 relative overflow-hidden">
+      <div className="bg-surface-primary rounded-[var(--radius-3xl)] p-6 sm:p-8 md:p-10 mb-12 border border-border-default shadow-[var(--shadow-soft)] flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 relative overflow-hidden">
         
         {/* Abstract Background Element */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-terracotta/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-        {/* Avatar */}
-        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full bg-terracotta/10 text-terracotta flex items-center justify-center font-display text-5xl overflow-hidden border-4 border-surface-primary shadow-sm z-10">
-          {user.avatar ? (
-            <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
-          ) : (
-            getInitials(user.name)
-          )}
-        </div>
+        {/* Left Side: Avatar + Vertically Centered Details */}
+        <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 z-10 text-center sm:text-left w-full md:w-auto">
+          {/* Avatar */}
+          <div className="w-24 h-24 sm:w-28 sm:h-28 shrink-0 rounded-full bg-terracotta/10 text-terracotta flex items-center justify-center font-display text-3xl sm:text-4xl overflow-hidden border-4 border-surface-primary shadow-sm">
+            {user.avatar ? (
+              <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
+            ) : (
+              getInitials(user.name)
+            )}
+          </div>
 
-        {/* User Details */}
-        <div className="flex-1 text-center md:text-left z-10 w-full">
-          <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 w-full">
-            <div>
-              <h1 className="font-display text-(length:--text-heading-xl) text-primary mb-2">
-                {user.name || 'Traveler'}
-              </h1>
-              
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-8 text-(length:--text-body) text-secondary mt-4">
-                <div className="flex items-center gap-2">
-                  <Mail size={16} />
-                  <span>{user.email}</span>
-                </div>
-                {user.phone && (
-                  <div className="flex items-center gap-2">
-                    <Phone size={16} />
-                    <span>{user.phone}</span>
-                  </div>
-                )}
-                {(user.city || user.country) && (
-                  <div className="flex items-center gap-2">
-                    <MapPin size={16} />
-                    <span>
-                      {[user.city, user.country].filter(Boolean).join(', ')}
-                    </span>
-                  </div>
-                )}
+          {/* User Details (Vertically centered with avatar in row) */}
+          <div className="flex flex-col justify-center">
+            <h1 className="text-2xl sm:text-3xl font-display font-medium text-primary tracking-tight leading-tight">
+              {user.name || 'Traveler'}
+            </h1>
+            
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-5 gap-y-1.5 text-(length:--text-body-sm) text-secondary mt-2">
+              <div className="flex items-center gap-1.5">
+                <Mail size={15} className="text-secondary" />
+                <span>{user.email}</span>
               </div>
-
-              {user.bio && (
-                <p className="mt-6 text-(length:--text-body-lg) text-stone font-serif italic max-w-2xl leading-relaxed">
-                  "{user.bio}"
-                </p>
+              {user.phone && (
+                <div className="flex items-center gap-1.5">
+                  <Phone size={15} className="text-secondary" />
+                  <span>{user.phone}</span>
+                </div>
+              )}
+              {(user.city || user.country) && (
+                <div className="flex items-center gap-1.5">
+                  <MapPin size={15} className="text-secondary" />
+                  <span>
+                    {[user.city, user.country].filter(Boolean).join(', ')}
+                  </span>
+                </div>
               )}
             </div>
 
-            <Button 
-              variant="secondary" 
-              onClick={() => setIsEditModalOpen(true)}
-              className="flex items-center justify-center gap-2 shrink-0 mt-4 md:mt-2 w-full md:w-auto px-6"
-            >
-              <Edit2 size={16} /> Edit Profile
-            </Button>
+            {user.bio && (
+              <p className="mt-2.5 text-(length:--text-body-sm) text-stone italic max-w-xl line-clamp-2">
+                "{user.bio}"
+              </p>
+            )}
           </div>
+        </div>
+
+        {/* Right Side: Edit Profile Button */}
+        <div className="shrink-0 z-10 w-full sm:w-auto flex justify-center sm:justify-end">
+          <Button 
+            variant="secondary" 
+            onClick={() => setIsEditModalOpen(true)}
+            className="flex items-center justify-center gap-2 px-5 py-2 text-sm w-full sm:w-auto"
+          >
+            <Edit2 size={15} /> Edit Profile
+          </Button>
         </div>
       </div>
 
