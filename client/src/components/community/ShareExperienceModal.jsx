@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Modal from '../common/Modal';
 import Button from '../common/Button';
 import Input from '../common/Input';
+import Select from '../common/Select';
 import { getTrips } from '../../api/trips_api';
 import { createCommunityExperience } from '../../api/community_api';
 import { AlertCircle } from 'lucide-react';
@@ -130,22 +131,17 @@ const ShareExperienceModal = ({ isOpen, onClose, onSuccess }) => {
 
         {/* Selection */}
         <div>
-          <label className="block text-[10px] sm:text-(length:--text-caption) font-bold text-primary mb-2 uppercase tracking-wider">
-            Select {type}
-          </label>
-          <select
+          <Select
+            label={`Select ${type}`}
             value={selectedItem}
             onChange={(e) => setSelectedItem(e.target.value)}
             disabled={loadingTrips || trips.length === 0}
-            className="w-full px-4 py-2.5 rounded-[var(--radius-md)] border border-border-default bg-surface-elevated focus:outline-none focus:border-terracotta transition-colors text-(length:--text-body-sm)"
-          >
-            <option value="">{loadingTrips ? 'Loading...' : `Choose a ${type.toLowerCase()}...`}</option>
-            {trips.map(trip => (
-              <option key={trip.id || trip._id} value={trip.id || trip._id}>
-                {trip.title || trip.destination || 'Untitled Trip'}
-              </option>
-            ))}
-          </select>
+            placeholder={loadingTrips ? 'Loading...' : `Choose a ${type.toLowerCase()}...`}
+            options={trips.map(trip => ({
+              value: trip.id || trip._id,
+              label: trip.title || trip.destination || 'Untitled Trip'
+            }))}
+          />
           {trips.length === 0 && !loadingTrips && type === 'Trip' && (
             <p className="text-xs text-secondary mt-2">You don't have any trips yet. Create one first!</p>
           )}

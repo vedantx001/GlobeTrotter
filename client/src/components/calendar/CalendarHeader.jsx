@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight, Search, Filter, Layers } from 'lucide-react';
 import Button from '../common/Button';
+import Select from '../common/Select';
 import { useState } from 'react';
 
 const CalendarHeader = ({ 
@@ -81,17 +82,18 @@ const CalendarHeader = ({
               <h3 className="text-xs font-bold text-stone uppercase tracking-widest mb-4">Timeline Filters</h3>
               <div className="space-y-4">
                 <div>
-                  <label className="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-2">Time of Day</label>
-                  <select 
+                  <label className="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-1.5">Time of Day</label>
+                  <Select 
                     value={filters.timeSlot || 'All'}
                     onChange={(e) => onFilterChange('timeSlot', e.target.value)}
-                    className="w-full text-sm border border-border-subtle rounded-xl bg-surface-muted px-3 py-2.5 focus:outline-none focus:border-terracotta transition-colors"
-                  >
-                    <option value="All">All Times</option>
-                    <option value="Morning">Morning</option>
-                    <option value="Afternoon">Afternoon</option>
-                    <option value="Evening">Evening</option>
-                  </select>
+                    options={[
+                      { value: 'All', label: 'All Times' },
+                      { value: 'Morning', label: 'Morning' },
+                      { value: 'Afternoon', label: 'Afternoon' },
+                      { value: 'Evening', label: 'Evening' }
+                    ]}
+                    size="sm"
+                  />
                 </div>
               </div>
               <div className="mt-6 pt-4 border-t border-border-subtle flex justify-end">

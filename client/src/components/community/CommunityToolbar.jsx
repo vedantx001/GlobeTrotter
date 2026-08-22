@@ -1,4 +1,5 @@
 import { Search } from 'lucide-react';
+import Select from '../common/Select';
 
 const CommunityToolbar = ({
   searchQuery, onSearchChange,
@@ -6,6 +7,22 @@ const CommunityToolbar = ({
   filter, onFilterChange,
   sortBy, onSortByChange
 }) => {
+  const groupOptions = [
+    { value: 'Destination', label: 'Destination' },
+    { value: 'User', label: 'User' },
+    { value: 'Trip', label: 'Trip' },
+  ];
+
+  const filterOptions = [
+    { value: 'All', label: 'All Feed' },
+    { value: 'Recent', label: 'Recent Only' },
+  ];
+
+  const sortOptions = [
+    { value: 'Newest', label: 'Newest First' },
+    { value: 'Oldest', label: 'Oldest First' },
+  ];
+
   return (
     <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 bg-surface-muted p-4 sm:px-6 rounded-[var(--radius-2xl)] border border-border-subtle h-full">
       {/* Search */}
@@ -24,39 +41,35 @@ const CommunityToolbar = ({
       <div className="flex items-center gap-4 xl:gap-5 overflow-x-auto pb-1 xl:pb-0 scrollbar-hide">
         <div className="flex items-center gap-2">
           <label className="text-[10px] sm:text-(length:--text-caption) text-secondary font-bold uppercase tracking-wider whitespace-nowrap">Group By</label>
-          <select 
+          <Select 
             value={groupBy} 
             onChange={(e) => onGroupByChange(e.target.value)}
-            className="text-(length:--text-body-sm) border border-border-default rounded-[var(--radius-md)] px-3 py-1.5 bg-surface-elevated focus:outline-none focus:border-terracotta min-w-[130px] shadow-sm"
-          >
-            <option value="Destination">Destination</option>
-            <option value="User">User</option>
-            <option value="Trip">Trip</option>
-          </select>
+            options={groupOptions}
+            size="sm"
+            className="min-w-[140px]"
+          />
         </div>
 
         <div className="flex items-center gap-2">
           <label className="text-[10px] sm:text-(length:--text-caption) text-secondary font-bold uppercase tracking-wider whitespace-nowrap">Filter</label>
-          <select 
+          <Select 
             value={filter} 
             onChange={(e) => onFilterChange(e.target.value)}
-            className="text-(length:--text-body-sm) border border-border-default rounded-[var(--radius-md)] px-3 py-1.5 bg-surface-elevated focus:outline-none focus:border-terracotta min-w-[120px] shadow-sm"
-          >
-            <option value="All">All Feed</option>
-            <option value="Recent">Recent Only</option>
-          </select>
+            options={filterOptions}
+            size="sm"
+            className="min-w-[130px]"
+          />
         </div>
 
         <div className="flex items-center gap-2">
           <label className="text-[10px] sm:text-(length:--text-caption) text-secondary font-bold uppercase tracking-wider whitespace-nowrap">Sort By</label>
-          <select 
+          <Select 
             value={sortBy} 
             onChange={(e) => onSortByChange(e.target.value)}
-            className="text-(length:--text-body-sm) border border-border-default rounded-[var(--radius-md)] px-3 py-1.5 bg-surface-elevated focus:outline-none focus:border-terracotta min-w-[140px] shadow-sm"
-          >
-            <option value="Newest">Newest First</option>
-            <option value="Oldest">Oldest First</option>
-          </select>
+            options={sortOptions}
+            size="sm"
+            className="min-w-[150px]"
+          />
         </div>
       </div>
     </div>
@@ -64,3 +77,4 @@ const CommunityToolbar = ({
 };
 
 export default CommunityToolbar;
+

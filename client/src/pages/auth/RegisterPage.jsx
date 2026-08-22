@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthField from '../../components/auth/AuthField';
 import PasswordField from '../../components/auth/PasswordField';
 import Button from '../../components/common/Button';
+import Select from '../../components/common/Select';
 import { useAuth } from '../../context/AuthContext';
 
 const RegisterPage = () => {
@@ -170,35 +171,30 @@ const RegisterPage = () => {
             required
           />
 
-          <div className="flex flex-col gap-1.5 w-full">
-            <label htmlFor="country" className="text-(length:--text-body-sm) text-secondary font-medium">
-              Country <span className="text-terracotta">*</span>
-            </label>
-            <select
-              id="country"
-              name="country"
-              value={formData.country}
-              onChange={handleChange}
-              disabled={isSubmitting}
-              className={`w-full px-3.5 py-2.5 rounded-[var(--radius-md)] border text-(length:--text-body) bg-surface-elevated transition-colors duration-200 focus:outline-none focus:border-terracotta disabled:opacity-60 disabled:cursor-not-allowed ${errors.country ? 'border-danger' : 'border-border-default hover:border-border-strong'
-                }`}
-            >
-              <option value="" disabled>Select a country</option>
-              <option value="US">United States</option>
-              <option value="UK">United Kingdom</option>
-              <option value="CA">Canada</option>
-              <option value="AU">Australia</option>
-              <option value="FR">France</option>
-              <option value="DE">Germany</option>
-              <option value="IT">Italy</option>
-              <option value="ES">Spain</option>
-              <option value="JP">Japan</option>
-              <option value="OTHER">Other</option>
-            </select>
-            {errors.country && (
-              <span className="text-(length:--text-caption) text-danger mt-1">{errors.country}</span>
-            )}
-          </div>
+          <Select
+            label="Country"
+            name="country"
+            id="country"
+            value={formData.country}
+            onChange={handleChange}
+            disabled={isSubmitting}
+            error={errors.country}
+            placeholder="Select a country"
+            options={[
+              { value: 'US', label: 'United States' },
+              { value: 'UK', label: 'United Kingdom' },
+              { value: 'CA', label: 'Canada' },
+              { value: 'AU', label: 'Australia' },
+              { value: 'IN', label: 'India' },
+              { value: 'FR', label: 'France' },
+              { value: 'DE', label: 'Germany' },
+              { value: 'IT', label: 'Italy' },
+              { value: 'ES', label: 'Spain' },
+              { value: 'JP', label: 'Japan' },
+              { value: 'OTHER', label: 'Other' }
+            ]}
+            required
+          />
         </div>
 
         <PasswordField

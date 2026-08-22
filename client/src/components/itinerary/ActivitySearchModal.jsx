@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { X, Search } from 'lucide-react';
 import Input from '../common/Input';
 import Button from '../common/Button';
+import Select from '../common/Select';
 import { searchActivities } from '../../api/trips_api';
 
 const ActivitySearchModal = ({ isOpen, onClose, onAdd, stop }) => {
@@ -161,20 +162,17 @@ const ActivitySearchModal = ({ isOpen, onClose, onAdd, stop }) => {
                   required
                 />
                 
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-(length:--text-body-sm) text-secondary font-medium">
-                    Time Slot <span className="text-terracotta">*</span>
-                  </label>
-                  <select
-                    value={timeSlot}
-                    onChange={(e) => setTimeSlot(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-[var(--radius-md)] border border-border-default text-(length:--text-body) bg-surface-elevated focus:outline-none focus:border-terracotta"
-                  >
-                    <option value="Morning">Morning</option>
-                    <option value="Afternoon">Afternoon</option>
-                    <option value="Evening">Evening</option>
-                  </select>
-                </div>
+                <Select
+                  label="Time Slot"
+                  value={timeSlot}
+                  onChange={(e) => setTimeSlot(e.target.value)}
+                  options={[
+                    { value: 'Morning', label: 'Morning' },
+                    { value: 'Afternoon', label: 'Afternoon' },
+                    { value: 'Evening', label: 'Evening' }
+                  ]}
+                  required
+                />
 
                 <Input
                   label="Custom Cost (Optional)"

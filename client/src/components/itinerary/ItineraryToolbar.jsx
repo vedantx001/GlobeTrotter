@@ -1,4 +1,5 @@
 import { Search } from 'lucide-react';
+import Select from '../common/Select';
 
 const ItineraryToolbar = ({ 
   searchQuery, onSearchChange,
@@ -7,6 +8,23 @@ const ItineraryToolbar = ({
   sortBy, onSortByChange,
   categories
 }) => {
+  const groupOptions = [
+    { value: 'Day', label: 'Day' },
+    { value: 'City', label: 'City' },
+    { value: 'Category', label: 'Category' },
+  ];
+
+  const filterOptions = [
+    { value: 'All', label: 'All Categories' },
+    ...(categories || []).map(cat => ({ value: cat, label: cat })),
+  ];
+
+  const sortOptions = [
+    { value: 'Date', label: 'Date / Default' },
+    { value: 'ExpenseAsc', label: 'Expense: Low to High' },
+    { value: 'ExpenseDesc', label: 'Expense: High to Low' },
+  ];
+
   return (
     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8 bg-surface-muted p-4 rounded-[var(--radius-xl)] border border-border-subtle">
       {/* Search */}
@@ -25,42 +43,35 @@ const ItineraryToolbar = ({
       <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
         <div className="flex items-center gap-2">
           <label className="text-(length:--text-caption) text-secondary font-medium uppercase tracking-wider whitespace-nowrap">Group By</label>
-          <select 
+          <Select 
             value={groupBy} 
             onChange={(e) => onGroupByChange(e.target.value)}
-            className="text-(length:--text-body-sm) border border-border-default rounded-[var(--radius-sm)] px-2 py-1.5 bg-surface-elevated focus:outline-none focus:border-terracotta min-w-[120px]"
-          >
-            <option value="Day">Day</option>
-            <option value="City">City</option>
-            <option value="Category">Category</option>
-          </select>
+            options={groupOptions}
+            size="sm"
+            className="min-w-[130px]"
+          />
         </div>
 
         <div className="flex items-center gap-2">
           <label className="text-(length:--text-caption) text-secondary font-medium uppercase tracking-wider whitespace-nowrap">Filter</label>
-          <select 
+          <Select 
             value={filter} 
             onChange={(e) => onFilterChange(e.target.value)}
-            className="text-(length:--text-body-sm) border border-border-default rounded-[var(--radius-sm)] px-2 py-1.5 bg-surface-elevated focus:outline-none focus:border-terracotta min-w-[140px]"
-          >
-            <option value="All">All Categories</option>
-            {categories.map(cat => (
-              <option key={cat} value={cat}>{cat}</option>
-            ))}
-          </select>
+            options={filterOptions}
+            size="sm"
+            className="min-w-[150px]"
+          />
         </div>
 
         <div className="flex items-center gap-2">
           <label className="text-(length:--text-caption) text-secondary font-medium uppercase tracking-wider whitespace-nowrap">Sort By</label>
-          <select 
+          <Select 
             value={sortBy} 
             onChange={(e) => onSortByChange(e.target.value)}
-            className="text-(length:--text-body-sm) border border-border-default rounded-[var(--radius-sm)] px-2 py-1.5 bg-surface-elevated focus:outline-none focus:border-terracotta min-w-[160px]"
-          >
-            <option value="Date">Date / Default</option>
-            <option value="ExpenseAsc">Expense: Low to High</option>
-            <option value="ExpenseDesc">Expense: High to Low</option>
-          </select>
+            options={sortOptions}
+            size="sm"
+            className="min-w-[170px]"
+          />
         </div>
       </div>
     </div>
