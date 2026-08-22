@@ -7,6 +7,7 @@ import budgetRoutes from "./src/routes/budget.routes.js";
 import cityRoutes from "./src/routes/city.routes.js";
 import shareRoutes from "./src/routes/share.routes.js";
 import itineraryRoutes from "./src/routes/itinerary.routes.js";
+import activityRoutes from "./src/routes/activity.routes.js";
 
 const app = express();
 
@@ -48,5 +49,6 @@ app.use("/api/trips", tripRoutes);
 app.use("/api/trips", budgetRoutes);
 app.use("/api/trips", shareRoutes);
 app.use("/api/cities", cityRoutes);
+app.use("/api/activities", activityRoutes);
 
 export default app;
