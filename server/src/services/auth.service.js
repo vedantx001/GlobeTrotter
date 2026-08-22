@@ -1,9 +1,7 @@
 import bcrypt from 'bcryptjs';
-import { PrismaClient } from '@prisma/client';
+import prisma from '../config/prisma.js';
 import { generateToken } from '../utils/jwt.js';
 import ROLES from '../constants/roles.js';
-
-const prisma = new PrismaClient();
 
 export const registerUser = async (userData) => {
   const { firstName, lastName, email, phone, password, city, country, profileImage } = userData;
@@ -30,7 +28,7 @@ export const registerUser = async (userData) => {
       lastName,
       email,
       phone,
-      password: hashedPassword,
+      passwordHash: hashedPassword,
       city,
       country,
       profileImage: profileImage || null,
@@ -40,8 +38,8 @@ export const registerUser = async (userData) => {
 
   const token = generateToken(newUser.id, newUser.role);
 
-  // Remove password from response
-  const { password: _, ...userWithoutPassword } = newUser;
+  // Remove passwordHash from response
+  const { passwordHash: _, ...userWithoutPassword } = newUser;
 
   return {
     user: userWithoutPassword,
@@ -60,7 +58,8 @@ export const loginUser = async (identifier, password) => {
     throw new Error('Invalid credentials.');
   }
 
-  const isPasswordValid = await bcrypt.compare(password, user.password);
+  const userPasswordHash = user.passwordHash || user.password;
+  const isPasswordValid = await bcrypt.compare(password, userPasswordHash);
   
   if (!isPasswordValid) {
     throw new Error('Invalid credentials.');
@@ -68,10 +67,11 @@ export const loginUser = async (identifier, password) => {
 
   const token = generateToken(user.id, user.role);
 
-  const { password: _, ...userWithoutPassword } = user;
+  const { passwordHash: _, ...userWithoutPassword } = user;
 
   return {
     user: userWithoutPassword,
     token
   };
 };
+
