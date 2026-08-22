@@ -6,6 +6,7 @@ import RegisterPage from '../pages/auth/RegisterPage';
 import PublicRoute from './PublicRoute';
 import ProtectedRoute from './ProtectedRoute';
 import DashboardPage from '../pages/DashboardPage';
+import CreateTripPage from '../pages/trips/CreateTripPage';
 
 const AppRoutes = () => {
   return (
@@ -25,6 +26,7 @@ const AppRoutes = () => {
       <Route element={<ProtectedRoute />}>
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/trips/new" element={<CreateTripPage />} />
         </Route>
       </Route>
 
