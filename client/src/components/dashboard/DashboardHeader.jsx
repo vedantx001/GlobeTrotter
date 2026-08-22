@@ -31,12 +31,12 @@ const DashboardHeader = () => {
         </div>
         
         <div className="flex items-center gap-4">
-          <div className="hidden sm:flex items-center gap-2 text-secondary">
-            <User size={16} />
+          <Link to="/profile" className="hidden sm:flex items-center gap-2 text-secondary hover:text-primary transition-colors cursor-pointer group">
+            <User size={16} className="group-hover:text-terracotta transition-colors" />
             <span className="text-(length:--text-body-sm) font-medium">
               {user?.name || user?.firstName || 'Traveler'}
             </span>
-          </div>
+          </Link>
           <button 
             onClick={handleLogout}
             className="text-secondary hover:text-danger transition-colors p-2 rounded-full hover:bg-danger-soft focus:outline-none"
