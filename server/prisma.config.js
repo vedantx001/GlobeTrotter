@@ -8,4 +8,7 @@ export default defineConfig({
   datasource: {
     url: process.env.DATABASE_URL || "mysql://root:password@localhost:3306/globetrotter",
   },
+  migrations: {
+    seed: "node prisma/seed.js",
+  },
 });

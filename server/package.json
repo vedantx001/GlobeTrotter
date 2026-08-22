@@ -6,17 +6,23 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
+    "seed": "node prisma/seed.js",
+    "prisma:seed": "prisma db seed",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:validate": "prisma validate",
     "prisma:studio": "prisma studio",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@prisma/adapter-mariadb": "^7.9.1",
     "@prisma/client": "^7.9.1",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.3",
@@ -24,6 +30,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
+    "mariadb": "^3.5.3",
     "mysql2": "^3.23.4",
     "prisma": "^7.9.1"
   }
