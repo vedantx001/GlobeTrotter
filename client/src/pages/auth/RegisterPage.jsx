@@ -98,7 +98,7 @@ const RegisterPage = () => {
   return (
     <div className="bg-warm-white rounded-[var(--radius-2xl)] shadow-[var(--shadow-card)] border border-border-subtle p-6 sm:p-8 w-full max-w-[680px] mx-auto">
       <div className="mb-4">
-        <h1 className="text-lg sm:text-xl font-semibold text-primary tracking-tight mb-1">
+        <h1 className="text-sm sm:text-base font-semibold text-primary tracking-tight mb-1">
           Create your account
         </h1>
         <p className="text-secondary text-(length:--text-body-sm)">

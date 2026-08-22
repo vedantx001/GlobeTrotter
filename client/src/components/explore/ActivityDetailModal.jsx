@@ -1,6 +1,6 @@
 import Modal from '../common/Modal';
 import Button from '../common/Button';
-import { Star, MapPin, Clock, IndianRupee, Tag, CheckCircle2 } from 'lucide-react';
+import { Star, MapPin, Clock, DollarSign, Tag, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -46,7 +46,7 @@ const ActivityDetailModal = ({ isOpen, onClose, place }) => {
           <div>
             <div className="text-[10px] font-bold text-secondary uppercase tracking-wider mb-1">Estimated Cost</div>
             <div className="flex items-center gap-1 font-medium text-primary">
-              <IndianRupee size={16} className="text-secondary" />
+              <DollarSign size={16} className="text-secondary" />
               <span>{place.estimatedCost}</span>
             </div>
           </div>

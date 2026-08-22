@@ -1,4 +1,4 @@
-import { Star, MapPin, Clock, IndianRupee } from 'lucide-react';
+import { Star, MapPin, Clock, DollarSign } from 'lucide-react';
 
 const ActivityResultCard = ({ place, onClick }) => {
   return (
@@ -33,7 +33,7 @@ const ActivityResultCard = ({ place, onClick }) => {
       <div className="flex items-center justify-between border-t border-border-subtle pt-4 mt-auto">
         <div className="flex items-center gap-4 text-sm text-primary font-medium">
           <div className="flex items-center gap-1">
-            <IndianRupee size={14} className="text-secondary" />
+            <DollarSign size={14} className="text-secondary" />
             <span>{place.estimatedCost}</span>
           </div>
           <div className="flex items-center gap-1">
