@@ -25,8 +25,8 @@ const DashboardHeader = () => {
             <img 
               src={logo} 
               alt="GlobeTrotter Logo" 
-              className="mix-blend-multiply"
-              style={{ height: '40px', width: 'auto', objectFit: 'contain' }} 
+              className="object-contain"
+              style={{ height: '40px', width: 'auto' }} 
             />
           </Link>
           <nav className="hidden md:flex items-center gap-6">

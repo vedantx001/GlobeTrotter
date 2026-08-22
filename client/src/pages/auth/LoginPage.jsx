@@ -88,8 +88,8 @@ const LoginPage = () => {
   if (forgotPasswordMode) {
     return (
       <div className="bg-warm-white rounded-[var(--radius-2xl)] shadow-[var(--shadow-card)] border border-border-subtle p-8 sm:p-10 w-full">
-        <div className="mb-8">
-          <h1 className="font-display text-(length:--text-heading-md) text-primary mb-2">Reset Password</h1>
+        <div className="mb-5">
+          <h1 className="text-lg sm:text-xl font-semibold text-primary tracking-tight mb-1">Reset Password</h1>
           <p className="text-secondary text-(length:--text-body-sm)">
             Enter your email address and we'll send you a link to reset your password.
           </p>
@@ -137,9 +137,9 @@ const LoginPage = () => {
 
   return (
     <div className="bg-warm-white rounded-[var(--radius-2xl)] shadow-[var(--shadow-card)] border border-border-subtle p-8 sm:p-10 w-full max-w-[420px] mx-auto">
-      <div className="mb-8">
-        <h1 className="font-display text-(length:--text-heading-md) text-primary mb-2 leading-none">
-          Welcome back.
+      <div className="mb-5">
+        <h1 className="text-lg sm:text-xl font-semibold text-primary tracking-tight mb-1">
+          Welcome back
         </h1>
         <p className="text-secondary text-(length:--text-body-sm)">
           Continue planning your next journey.

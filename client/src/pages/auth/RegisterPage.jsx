@@ -91,9 +91,9 @@ const RegisterPage = () => {
 
   return (
     <div className="bg-warm-white rounded-[var(--radius-2xl)] shadow-[var(--shadow-card)] border border-border-subtle p-6 sm:p-8 w-full max-w-[680px] mx-auto">
-      <div className="mb-5">
-        <h1 className="font-display text-(length:--text-heading-md) text-primary mb-1.5 leading-[1.05]">
-          Create your<br />account.
+      <div className="mb-4">
+        <h1 className="text-lg sm:text-xl font-semibold text-primary tracking-tight mb-1">
+          Create your account
         </h1>
         <p className="text-secondary text-(length:--text-body-sm)">
           Start planning journeys with GlobeTrotter.
@@ -116,7 +116,7 @@ const RegisterPage = () => {
             onChange={handleChange}
             error={errors.firstName}
             disabled={isSubmitting}
-            placeholder="Jane"
+            placeholder="Karan"
             required
           />
           <AuthField
@@ -126,7 +126,7 @@ const RegisterPage = () => {
             onChange={handleChange}
             error={errors.lastName}
             disabled={isSubmitting}
-            placeholder="Doe"
+            placeholder="Patel"
             required
           />
         </div>
@@ -141,7 +141,7 @@ const RegisterPage = () => {
             onChange={handleChange}
             error={errors.email}
             disabled={isSubmitting}
-            placeholder="name@example.com"
+            placeholder="karan@example.com"
             required
           />
           <AuthField
@@ -152,7 +152,7 @@ const RegisterPage = () => {
             onChange={handleChange}
             error={errors.phone}
             disabled={isSubmitting}
-            placeholder="+1 (555) 000-0000"
+            placeholder="+91 9265147936"
             required
           />
         </div>
@@ -166,7 +166,7 @@ const RegisterPage = () => {
             onChange={handleChange}
             error={errors.city}
             disabled={isSubmitting}
-            placeholder="London"
+            placeholder="Delhi"
             required
           />
 
@@ -212,21 +212,6 @@ const RegisterPage = () => {
           required
         />
 
-        <div className="flex flex-col gap-1.5 w-full">
-          <label htmlFor="additionalInfo" className="text-(length:--text-body-sm) text-secondary font-medium">
-            Additional information
-          </label>
-          <textarea
-            id="additionalInfo"
-            name="additionalInfo"
-            value={formData.additionalInfo}
-            onChange={handleChange}
-            disabled={isSubmitting}
-            placeholder="Any special travel preferences or dietary requirements?"
-            rows={2}
-            className="w-full px-3.5 py-2.5 rounded-[var(--radius-md)] border border-border-default hover:border-border-strong text-(length:--text-body) bg-surface-elevated transition-colors duration-200 focus:outline-none focus:border-terracotta disabled:opacity-60 disabled:cursor-not-allowed resize-y"
-          />
-        </div>
 
         <div className="pt-2">
           <Button type="submit" loading={isSubmitting}>
