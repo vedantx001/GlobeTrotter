@@ -70,8 +70,13 @@ const RegisterPage = () => {
     
     try {
       const payload = {
-        name: `${formData.firstName} ${formData.lastName}`,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        name: `${formData.firstName} ${formData.lastName}`.trim(),
         email: formData.email,
+        phone: formData.phone,
+        city: formData.city,
+        country: formData.country,
         password: formData.password
       };
       

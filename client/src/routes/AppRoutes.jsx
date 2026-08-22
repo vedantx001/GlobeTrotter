@@ -43,7 +43,6 @@ const AppRoutes = () => {
           
           {/* Future Route Placeholders (Prevent 404 redirect) */}
           <Route path="/trips/:id" element={<ItineraryViewPage />} />
-          <Route path="/trips/:id/edit" element={null} />
         </Route>
       </Route>
 
