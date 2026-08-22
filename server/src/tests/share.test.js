@@ -124,7 +124,7 @@ describe('Share API Tests', () => {
     // Test 6: Validation failure
     it('6. should return 400 if shareToken is missing or invalid', async () => {
       const response = await request(app)
-        .get('/api/trips/public/ '); // whitespace token
+        .get('/api/trips/public/%20'); // explicitly encoded whitespace token
 
       expect(response.status).toBe(400);
       expect(response.body.success).toBe(false);
