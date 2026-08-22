@@ -1,0 +1,190 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+enum TimeSlot {
+  Morning
+  Afternoon
+  Evening
+}
+
+enum ExpenseCategory {
+  Transport
+  Accommodation
+  Activities
+  Meals
+  Misc
+}
+
+model User {
+  id                Int                @id @default(autoincrement())
+  firstName         String             @map("first_name")
+  lastName          String?            @map("last_name")
+  email             String             @unique
+  phone             String?
+  passwordHash      String             @map("password_hash")
+  profileImage      String?            @map("profile_image") @db.Text
+  city              String?
+  country           String?
+  role              String             @default("USER")
+  isActive          Boolean            @default(true) @map("is_active")
+  bio               String?            @db.Text
+  language          String?            @default("en")
+  currency          String             @default("USD")
+  createdAt         DateTime           @default(now()) @map("created_at")
+  updatedAt         DateTime           @updatedAt @map("updated_at")
+
+  trips             Trip[]
+  savedDestinations SavedDestination[]
+
+  @@map("users")
+}
+
+model City {
+  id                Int                @id @default(autoincrement())
+  name              String
+  country           String
+  region            String?
+  costIndex         Decimal?           @map("cost_index") @db.Decimal(5, 2)
+  popularityScore   Float?             @default(0) @map("popularity_score")
+  imageUrl          String?            @map("image_url") @db.Text
+  description       String?            @db.Text
+  createdAt         DateTime           @default(now()) @map("created_at")
+  updatedAt         DateTime           @updatedAt @map("updated_at")
+
+  activities        Activity[]
+  tripStops         TripStop[]
+  savedDestinations SavedDestination[]
+
+  @@index([name])
+  @@index([country])
+  @@index([region])
+  @@index([popularityScore])
+  @@map("cities")
+}
+
+model Activity {
+  id                  Int                  @id @default(autoincrement())
+  cityId              Int                  @map("city_id")
+  title               String
+  description         String?              @db.Text
+  category            String
+  cost                Decimal              @default(0.00) @db.Decimal(10, 2)
+  durationHours       Decimal?             @map("duration_hours") @db.Decimal(4, 2)
+  imageUrl            String?              @map("image_url") @db.Text
+  createdAt           DateTime             @default(now()) @map("created_at")
+  updatedAt           DateTime             @updatedAt @map("updated_at")
+
+  city                City                 @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  itineraryActivities ItineraryActivity[]
+
+  @@index([cityId])
+  @@index([category])
+  @@index([cost])
+  @@map("activities")
+}
+
+model Trip {
+  id           Int           @id @default(autoincrement())
+  userId       Int           @map("user_id")
+  title        String
+  description  String?       @db.Text
+  startDate    DateTime?     @map("start_date") @db.Date
+  endDate      DateTime?     @map("end_date") @db.Date
+  coverImage   String?       @map("cover_image") @db.Text
+  totalBudget  Decimal?      @map("total_budget") @db.Decimal(10, 2)
+  isPublic     Boolean       @default(false) @map("is_public")
+  shareToken   String?       @unique @map("share_token")
+  createdAt    DateTime      @default(now()) @map("created_at")
+  updatedAt    DateTime      @updatedAt @map("updated_at")
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tripStops    TripStop[]
+  tripExpenses TripExpense[]
+
+  @@index([userId])
+  @@index([startDate])
+  @@index([endDate])
+  @@map("trips")
+}
+
+model TripStop {
+  id                  Int                  @id @default(autoincrement())
+  tripId              Int                  @map("trip_id")
+  cityId              Int                  @map("city_id")
+  stopOrder           Int                  @map("stop_order")
+  startDate           DateTime?            @map("start_date") @db.Date
+  endDate             DateTime?            @map("end_date") @db.Date
+  notes               String?              @db.Text
+  createdAt           DateTime             @default(now()) @map("created_at")
+  updatedAt           DateTime             @updatedAt @map("updated_at")
+
+  trip                Trip                 @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  city                City                 @relation(fields: [cityId], references: [id], onDelete: Restrict)
+  itineraryActivities ItineraryActivity[]
+
+  @@index([tripId])
+  @@index([cityId])
+  @@index([stopOrder])
+  @@map("trip_stops")
+}
+
+model ItineraryActivity {
+  id            Int       @id @default(autoincrement())
+  tripStopId    Int       @map("trip_stop_id")
+  activityId    Int       @map("activity_id")
+  scheduledDate DateTime? @map("scheduled_date") @db.Date
+  timeSlot      TimeSlot? @map("time_slot")
+  customCost    Decimal?  @map("custom_cost") @db.Decimal(10, 2)
+  notes         String?   @db.Text
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  tripStop      TripStop  @relation(fields: [tripStopId], references: [id], onDelete: Cascade)
+  activity      Activity  @relation(fields: [activityId], references: [id], onDelete: Restrict)
+
+  @@index([tripStopId])
+  @@index([activityId])
+  @@index([scheduledDate])
+  @@map("itinerary_activities")
+}
+
+model TripExpense {
+  id          Int             @id @default(autoincrement())
+  tripId      Int             @map("trip_id")
+  category    ExpenseCategory
+  title       String
+  amount      Decimal         @db.Decimal(10, 2)
+  expenseDate DateTime        @default(now()) @map("expense_date")
+  createdAt   DateTime        @default(now()) @map("created_at")
+  updatedAt   DateTime        @updatedAt @map("updated_at")
+
+  trip        Trip            @relation(fields: [tripId], references: [id], onDelete: Cascade)
+
+  @@index([tripId])
+  @@index([expenseDate])
+  @@index([category])
+  @@map("trip_expenses")
+}
+
+model SavedDestination {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  cityId    Int      @map("city_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  city      City     @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, cityId])
+  @@index([userId])
+  @@index([cityId])
+  @@map("saved_destinations")
+}
