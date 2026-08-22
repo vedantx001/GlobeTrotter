@@ -15,6 +15,8 @@ import StopCard from '../../components/itinerary/StopCard';
 import CitySearchModal from '../../components/itinerary/CitySearchModal';
 import ActivitySearchModal from '../../components/itinerary/ActivitySearchModal';
 import Button from '../../components/common/Button';
+import CalendarOverlay from '../../components/calendar/CalendarOverlay';
+import { Calendar } from 'lucide-react';
 
 const ItineraryBuilderPage = () => {
   const { tripId } = useParams();
@@ -27,6 +29,7 @@ const ItineraryBuilderPage = () => {
   // Modal states
   const [isCityModalOpen, setIsCityModalOpen] = useState(false);
   const [activeStopForActivity, setActiveStopForActivity] = useState(null);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   useEffect(() => {
     const fetchItinerary = async () => {
@@ -153,9 +156,14 @@ const ItineraryBuilderPage = () => {
           </div>
         ) : (
           <div className="space-y-0">
-            <h3 className="font-display text-(length:--text-heading-sm) text-primary mb-8 tracking-wide">
-              YOUR JOURNEY
-            </h3>
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="font-display text-(length:--text-heading-sm) text-primary tracking-wide">
+                YOUR JOURNEY
+              </h3>
+              <Button variant="secondary" onClick={() => setIsCalendarOpen(true)} className="flex items-center gap-2 !px-4">
+                <Calendar size={14} /> Calendar
+              </Button>
+            </div>
             
             {stops.map((stop, index) => (
               <StopCard 
@@ -198,6 +206,12 @@ const ItineraryBuilderPage = () => {
         stop={activeStopForActivity}
         onClose={() => setActiveStopForActivity(null)}
         onAdd={handleAddActivity}
+      />
+      
+      <CalendarOverlay 
+        isOpen={isCalendarOpen} 
+        onClose={() => setIsCalendarOpen(false)} 
+        trip={{ ...trip, stops }} 
       />
       
     </div>

@@ -2,10 +2,11 @@ import { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getTripItinerary } from '../../api/trips_api';
 import Button from '../../components/common/Button';
-import { ArrowLeft, Edit2 } from 'lucide-react';
+import { ArrowLeft, Edit2, Calendar } from 'lucide-react';
 import ItineraryToolbar from '../../components/itinerary/ItineraryToolbar';
 import ItineraryActivityRow from '../../components/itinerary/ItineraryActivityRow';
 import BudgetSummary from '../../components/itinerary/BudgetSummary';
+import CalendarOverlay from '../../components/calendar/CalendarOverlay';
 
 const ItineraryViewPage = () => {
   const { id } = useParams();
@@ -14,6 +15,7 @@ const ItineraryViewPage = () => {
   const [itinerary, setItinerary] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   // Controls State
   const [searchQuery, setSearchQuery] = useState('');
@@ -228,6 +230,9 @@ const ItineraryViewPage = () => {
           <ArrowLeft size={16} /> My Trips
         </button>
         <div className="flex items-center gap-3">
+          <Button variant="secondary" onClick={() => setIsCalendarOpen(true)} className="flex items-center gap-2 !px-4">
+            <Calendar size={14} /> Calendar
+          </Button>
           <Button variant="secondary" onClick={() => navigate(`/builder/${id}`)} className="flex items-center gap-2 !px-4">
             <Edit2 size={14} /> Edit itinerary
           </Button>
@@ -306,6 +311,14 @@ const ItineraryViewPage = () => {
           ))}
         </div>
       )}
+
+      {/* Calendar Overlay */}
+      <CalendarOverlay 
+        isOpen={isCalendarOpen} 
+        onClose={() => setIsCalendarOpen(false)} 
+        trip={itinerary} 
+      />
+
     </div>
   );
 };
