@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import AuthField from '../../components/auth/AuthField';
 import PasswordField from '../../components/auth/PasswordField';
 import Button from '../../components/common/Button';
+import { useAuth } from '../../context/AuthContext';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,11 @@ const LoginPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [forgotPasswordMode, setForgotPasswordMode] = useState(false);
   const [forgotPasswordStatus, setForgotPasswordStatus] = useState('');
+
+  const { login, forgotPassword } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const successMessage = location.state?.successMessage;
 
   const validate = () => {
     const newErrors = {};
@@ -42,26 +48,41 @@ const LoginPage = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    setErrors({});
+    
+    try {
+      await login({ email: formData.email, password: formData.password });
+      navigate('/dashboard');
+    } catch (error) {
+      const message = error.response?.data?.message || 'Invalid email or password. Please try again.';
+      setErrors({ submit: message });
+    } finally {
       setIsSubmitting(false);
-      setErrors({ submit: 'Authentication is not connected yet.' });
-    }, 1000);
+    }
   };
 
-  const handleForgotPasswordSubmit = (e) => {
+  const handleForgotPasswordSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
     
     setIsSubmitting(true);
-    setTimeout(() => {
+    setForgotPasswordStatus('');
+    setErrors({});
+    
+    try {
+      await forgotPassword(formData.email);
+      setForgotPasswordStatus('If an account exists, a reset link has been sent to your email.');
+    } catch (error) {
+      const message = error.response?.data?.message || 'Unable to connect to the server.';
+      setErrors({ submit: message });
+    } finally {
       setIsSubmitting(false);
-      setForgotPasswordStatus('Backend password recovery will be connected in a future update.');
-    }, 1000);
+    }
   };
 
   if (forgotPasswordMode) {
@@ -126,6 +147,12 @@ const LoginPage = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+        {successMessage && (
+          <div className="p-3 bg-success-soft text-success text-(length:--text-body-sm) rounded-[var(--radius-md)] border border-border-subtle">
+            {successMessage}
+          </div>
+        )}
+        
         {errors.submit && (
           <div className="p-3 bg-warning-soft text-warning text-(length:--text-body-sm) rounded-[var(--radius-md)] border border-border-subtle">
             {errors.submit}

@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthField from '../../components/auth/AuthField';
 import PasswordField from '../../components/auth/PasswordField';
 import Button from '../../components/common/Button';
+import { useAuth } from '../../context/AuthContext';
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +19,8 @@ const RegisterPage = () => {
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { register } = useAuth();
+  const navigate = useNavigate();
 
   const validate = () => {
     const newErrors = {};
@@ -57,15 +60,33 @@ const RegisterPage = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    setErrors({});
+    
+    try {
+      const payload = {
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        password: formData.password
+      };
+      
+      const response = await register(payload);
+      
+      if (response.data?.token || response.token) {
+        navigate('/dashboard');
+      } else {
+        navigate('/login', { state: { successMessage: 'Account created successfully! Please sign in.' } });
+      }
+    } catch (error) {
+      const message = error.response?.data?.message || 'Unable to connect to the server.';
+      setErrors({ submit: message });
+    } finally {
       setIsSubmitting(false);
-      setErrors({ submit: 'Backend registration will be connected in a future update.' });
-    }, 1000);
+    }
   };
 
   return (
