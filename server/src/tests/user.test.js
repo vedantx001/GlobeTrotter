@@ -106,7 +106,7 @@ describe('User API Tests', () => {
       const response = await request(app)
         .put('/api/user/profile')
         .set('Authorization', `Bearer ${mockToken}`)
-        .send({ firstName: 'Jane', phone: '0987654321' });
+        .send({ firstName: 'Jane', phone: '9876543210' });
 
       expect(response.status).toBe(200);
       expect(response.body.success).toBe(true);
