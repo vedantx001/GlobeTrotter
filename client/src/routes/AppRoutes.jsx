@@ -7,6 +7,7 @@ import PublicRoute from './PublicRoute';
 import ProtectedRoute from './ProtectedRoute';
 import DashboardPage from '../pages/DashboardPage';
 import CreateTripPage from '../pages/trips/CreateTripPage';
+import ItineraryBuilderPage from '../pages/trips/ItineraryBuilderPage';
 
 const AppRoutes = () => {
   return (
@@ -27,6 +28,7 @@ const AppRoutes = () => {
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/trips/new" element={<CreateTripPage />} />
+          <Route path="/builder/:tripId" element={<ItineraryBuilderPage />} />
         </Route>
       </Route>
 

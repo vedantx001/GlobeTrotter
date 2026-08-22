@@ -3,10 +3,10 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const DAYS_OF_WEEK = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
-const DateRangePicker = ({ startDate, endDate, onChange, error }) => {
+const DateRangePicker = ({ startDate, endDate, onChange, error, minDate, maxDate }) => {
   const [currentDate, setCurrentDate] = useState(() => {
-    // Start with the month of the selected startDate, or current month
-    const initDate = startDate ? new Date(startDate) : new Date();
+    // Start with the month of the selected startDate, or minDate, or current month
+    const initDate = startDate ? new Date(startDate) : (minDate ? new Date(minDate) : new Date());
     return new Date(initDate.getFullYear(), initDate.getMonth(), 1);
   });
   
@@ -29,6 +29,9 @@ const DateRangePicker = ({ startDate, endDate, onChange, error }) => {
   };
 
   const today = normalize(new Date());
+  const min = normalize(minDate) || today;
+  const max = normalize(maxDate);
+  
   const start = normalize(startDate);
   const end = normalize(endDate);
   const hover = normalize(hoverDate);
@@ -69,7 +72,8 @@ const DateRangePicker = ({ startDate, endDate, onChange, error }) => {
   const handleDayClick = (day) => {
     if (!day) return;
     const dayTime = normalize(day);
-    if (dayTime < today) return; // Don't allow past dates
+    
+    if (dayTime < min || (max && dayTime > max)) return; // Don't allow outside bounds
 
     const dateStr = formatDate(day);
 
@@ -143,7 +147,10 @@ const DateRangePicker = ({ startDate, endDate, onChange, error }) => {
           if (!day) return <div key={`empty-${idx}`} className="h-10 w-full" />;
           
           const dayTime = normalize(day);
-          const isPast = dayTime < today;
+          const isBeforeMin = dayTime < min;
+          const isAfterMax = max ? dayTime > max : false;
+          const isDisabled = isBeforeMin || isAfterMax;
+          
           const isStart = dayTime === start;
           const isEnd = dayTime === end;
           const isSelected = isStart || isEnd;
@@ -158,7 +165,7 @@ const DateRangePicker = ({ startDate, endDate, onChange, error }) => {
           let baseClasses = "relative h-10 w-full flex items-center justify-center text-(length:--text-body-sm) font-medium transition-all duration-200 z-10";
           let wrapperClasses = "relative w-full h-full flex items-center justify-center";
           
-          if (isPast) {
+          if (isDisabled) {
             baseClasses += " text-secondary/30 cursor-not-allowed";
           } else {
             baseClasses += " cursor-pointer";
@@ -186,8 +193,8 @@ const DateRangePicker = ({ startDate, endDate, onChange, error }) => {
             <div 
               key={dayTime} 
               className={wrapperClasses}
-              onClick={() => !isPast && handleDayClick(day)}
-              onMouseEnter={() => !isPast && handleMouseEnter(day)}
+              onClick={() => !isDisabled && handleDayClick(day)}
+              onMouseEnter={() => !isDisabled && handleMouseEnter(day)}
             >
               <div className={baseClasses}>
                 {day.getDate()}
