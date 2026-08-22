@@ -37,13 +37,12 @@ const ActivitySearchModal = ({ isOpen, onClose, onAdd, stop }) => {
     setLoading(true);
     try {
       const data = await searchActivities({ q: searchQuery });
-      let results = data;
-      if (searchQuery) {
-        results = data.filter(a => a.title.toLowerCase().includes(searchQuery.toLowerCase()));
-      }
-      setActivities(results || []);
+      // searchActivities already filters by q (both backend and local fallback)
+      // Just ensure we always set an array
+      setActivities(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error(err);
+      setActivities([]);
     } finally {
       setLoading(false);
     }

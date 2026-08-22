@@ -22,23 +22,35 @@ export const getCities = async (filters = {}) => {
 };
 
 export const getActivities = async (filters = {}) => {
-  const { cityId, category } = filters;
+  const { cityId, category, q } = filters;
   
   const where = {};
-  if (cityId) where.cityId = parseInt(cityId);
+  if (cityId) where.cityId = cityId;
   if (category) where.category = category;
+
+  // Keyword search across title, category, and city name
+  if (q) {
+    where.OR = [
+      { title: { contains: q } },
+      { category: { contains: q } },
+      { city: { name: { contains: q } } },
+    ];
+  }
   
   const activities = await prisma.activity.findMany({
     where,
-    include: { city: true }
+    include: { city: true },
+    orderBy: { title: 'asc' },
   });
   
   return activities.map(act => ({
     id: act.id,
     title: act.title,
     category: act.category,
+    description: act.description || '',
     defaultCost: act.cost,
     durationHours: act.durationHours,
-    city: act.city.name
+    cityName: act.city?.name || '',
+    imageUrl: act.imageUrl || null,
   }));
 };

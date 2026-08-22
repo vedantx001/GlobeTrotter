@@ -1,38 +1,47 @@
 // Mock data for development when backend is unavailable
+// These reflect Alex Johnson's real profile for presentation purposes
 
 export const mockTrips = [
   {
-    id: 'trip-1',
-    title: 'Alpine Expedition',
-    coverImage: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80',
-    startDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 14).toISOString(), // 14 days from now
-    destinations: ['Zurich', 'Zermatt', 'Geneva'],
-    status: 'Upcoming'
+    id: 'alex-trip-1',
+    title: 'European Grand Tour 2026',
+    coverImage: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800',
+    startDate: '2026-09-10',
+    endDate: '2026-09-24',
+    total_budget: 3500,
+    destinations: [
+      { name: 'London', country: 'United Kingdom' },
+      { name: 'Paris', country: 'France' },
+      { name: 'Amsterdam', country: 'Netherlands' },
+    ],
+    status: 'Upcoming',
+    isPublic: true,
   },
   {
-    id: 'trip-2',
-    title: 'Mediterranean Coast',
-    coverImage: 'https://images.unsplash.com/photo-1516483638261-f4088921eece?auto=format&fit=crop&q=80',
-    startDate: new Date(Date.now() - 1000 * 60 * 60 * 24 * 2).toISOString(), // 2 days ago
-    destinations: ['Amalfi', 'Positano', 'Capri'],
-    status: 'Ongoing'
+    id: 'alex-trip-2',
+    title: 'Asia Wishlist: Tokyo & Kyoto',
+    coverImage: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800',
+    startDate: '2025-11-05',
+    endDate: '2025-11-15',
+    total_budget: 2800,
+    destinations: [
+      { name: 'Tokyo', country: 'Japan' },
+      { name: 'Kyoto', country: 'Japan' },
+    ],
+    status: 'Completed',
+    isPublic: false,
   },
   {
-    id: 'trip-3',
-    title: 'Kyoto Sakura Season',
-    coverImage: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80',
-    startDate: new Date(Date.now() - 1000 * 60 * 60 * 24 * 180).toISOString(), // 6 months ago
-    destinations: ['Kyoto', 'Osaka', 'Nara'],
-    status: 'Previous'
+    id: 'alex-trip-3',
+    title: 'Bali Serenity Retreat',
+    coverImage: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800',
+    startDate: '2026-12-20',
+    endDate: '2026-12-30',
+    total_budget: 1800,
+    destinations: [{ name: 'Bali', country: 'Indonesia' }],
+    status: 'Upcoming',
+    isPublic: true,
   },
-  {
-    id: 'trip-4',
-    title: 'Nordic Lights',
-    coverImage: 'https://images.unsplash.com/photo-1579540455088-2580a6b5d929?auto=format&fit=crop&q=80', // Replace with aurora if preferred
-    startDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 45).toISOString(),
-    destinations: ['Tromso', 'Reykjavik'],
-    status: 'Upcoming'
-  }
 ];
 
 export const mockDestinations = [
