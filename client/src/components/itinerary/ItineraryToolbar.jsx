@@ -1,77 +1,79 @@
 import { Search } from 'lucide-react';
-import Select from '../common/Select';
 
 const ItineraryToolbar = ({ 
   searchQuery, onSearchChange,
   groupBy, onGroupByChange,
   filter, onFilterChange,
   sortBy, onSortByChange,
-  categories
+  categories = []
 }) => {
-  const groupOptions = [
-    { value: 'Day', label: 'Day' },
-    { value: 'City', label: 'City' },
-    { value: 'Category', label: 'Category' },
-  ];
-
-  const filterOptions = [
-    { value: 'All', label: 'All Categories' },
-    ...(categories || []).map(cat => ({ value: cat, label: cat })),
-  ];
-
-  const sortOptions = [
-    { value: 'Date', label: 'Date / Default' },
-    { value: 'ExpenseAsc', label: 'Expense: Low to High' },
-    { value: 'ExpenseDesc', label: 'Expense: High to Low' },
-  ];
-
   return (
-    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8 bg-surface-muted p-4 rounded-[var(--radius-xl)] border border-border-subtle">
-      {/* Search */}
-      <div className="relative w-full lg:w-80">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary" size={16} />
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-3 border-y border-border-subtle/50 mb-8 font-sans">
+      {/* Sleek Expanded Search Input */}
+      <div className="relative w-full sm:w-[360px] md:w-[440px] lg:w-[480px]">
+        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone/70" size={16} strokeWidth={1.5} />
         <input
           type="text"
-          placeholder="Search itinerary..."
+          placeholder="Search activities, locations, categories..."
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full pl-9 pr-4 py-2 rounded-[var(--radius-md)] border border-border-default bg-surface-elevated focus:outline-none focus:border-terracotta transition-colors text-(length:--text-body-sm)"
+          className="w-full pl-10 pr-8 py-2 rounded-full border border-border-subtle bg-surface-primary focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 transition-all text-sm text-primary placeholder:text-stone/50 shadow-2xs"
         />
+        {searchQuery && (
+          <button 
+            type="button"
+            onClick={() => onSearchChange('')}
+            className="absolute right-3.5 top-1/2 -translate-y-1/2 text-sm text-stone hover:text-primary transition-colors cursor-pointer"
+            aria-label="Clear search"
+          >
+            ×
+          </button>
+        )}
       </div>
 
-      {/* Controls */}
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
-        <div className="flex items-center gap-2">
-          <label className="text-(length:--text-caption) text-secondary font-medium uppercase tracking-wider whitespace-nowrap">Group By</label>
-          <Select 
+      {/* Styled Filter Selects */}
+      <div className="flex flex-wrap items-center gap-3 sm:gap-4 shrink-0">
+        {/* Group By */}
+        <div className="flex items-center gap-1.5">
+          <span className="text-xs text-stone font-medium whitespace-nowrap uppercase tracking-wider">Group:</span>
+          <select 
             value={groupBy} 
             onChange={(e) => onGroupByChange(e.target.value)}
-            options={groupOptions}
-            size="sm"
-            className="min-w-[130px]"
-          />
+            className="text-xs font-medium border border-border-subtle rounded-full px-3 py-1.5 bg-surface-primary text-primary focus:outline-none focus:border-terracotta hover:border-border-strong cursor-pointer shadow-2xs transition-colors"
+          >
+            <option value="Day">Day</option>
+            <option value="City">City</option>
+            <option value="Category">Category</option>
+          </select>
         </div>
 
-        <div className="flex items-center gap-2">
-          <label className="text-(length:--text-caption) text-secondary font-medium uppercase tracking-wider whitespace-nowrap">Filter</label>
-          <Select 
+        {/* Filter */}
+        <div className="flex items-center gap-1.5">
+          <span className="text-xs text-stone font-medium whitespace-nowrap uppercase tracking-wider">Filter:</span>
+          <select 
             value={filter} 
             onChange={(e) => onFilterChange(e.target.value)}
-            options={filterOptions}
-            size="sm"
-            className="min-w-[150px]"
-          />
+            className="text-xs font-medium border border-border-subtle rounded-full px-3 py-1.5 bg-surface-primary text-primary focus:outline-none focus:border-terracotta hover:border-border-strong cursor-pointer max-w-[160px] truncate shadow-2xs transition-colors"
+          >
+            <option value="All">All Categories</option>
+            {categories.map(cat => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
+          </select>
         </div>
 
-        <div className="flex items-center gap-2">
-          <label className="text-(length:--text-caption) text-secondary font-medium uppercase tracking-wider whitespace-nowrap">Sort By</label>
-          <Select 
+        {/* Sort By */}
+        <div className="flex items-center gap-1.5">
+          <span className="text-xs text-stone font-medium whitespace-nowrap uppercase tracking-wider">Sort:</span>
+          <select 
             value={sortBy} 
             onChange={(e) => onSortByChange(e.target.value)}
-            options={sortOptions}
-            size="sm"
-            className="min-w-[170px]"
-          />
+            className="text-xs font-medium border border-border-subtle rounded-full px-3 py-1.5 bg-surface-primary text-primary focus:outline-none focus:border-terracotta hover:border-border-strong cursor-pointer shadow-2xs transition-colors"
+          >
+            <option value="Date">Default (Date)</option>
+            <option value="ExpenseAsc">Expense: Low → High</option>
+            <option value="ExpenseDesc">Expense: High → Low</option>
+          </select>
         </div>
       </div>
     </div>

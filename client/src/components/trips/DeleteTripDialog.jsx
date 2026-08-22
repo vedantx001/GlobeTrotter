@@ -23,7 +23,7 @@ const DeleteTripDialog = ({ isOpen, trip, onClose, onConfirm, isDeleting }) => {
         {/* Content */}
         <div className="p-6 pt-2">
           <h2 className="font-display text-(length:--text-heading-sm) text-primary mb-2">
-            Delete this journey?
+            Delete this trip?
           </h2>
           <p className="text-(length:--text-body-sm) text-secondary mb-4">
             Are you sure you want to delete <span className="font-medium text-primary">"{trip.title}"</span>? This will permanently remove the trip and its entire itinerary. This action cannot be undone.

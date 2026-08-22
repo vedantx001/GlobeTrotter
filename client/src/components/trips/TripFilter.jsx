@@ -2,20 +2,24 @@ const TripFilter = ({ currentFilter, onFilterChange }) => {
   const filters = ['All', 'Upcoming', 'Completed'];
 
   return (
-    <div className="flex items-center gap-2 p-1 bg-surface-muted border border-border-subtle rounded-full w-fit">
-      {filters.map((filter) => (
-        <button
-          key={filter}
-          onClick={() => onFilterChange(filter)}
-          className={`px-4 py-1.5 rounded-full text-(length:--text-body-sm) font-medium transition-all ${
-            currentFilter === filter
-              ? 'bg-white text-primary shadow-sm'
-              : 'text-secondary hover:text-primary hover:bg-white/50'
-          }`}
-        >
-          {filter}
-        </button>
-      ))}
+    <div className="inline-flex items-center p-1 bg-surface-muted/70 border border-border-subtle rounded-full backdrop-blur-xs">
+      {filters.map((filter) => {
+        const isActive = currentFilter === filter;
+        return (
+          <button
+            key={filter}
+            type="button"
+            onClick={() => onFilterChange(filter)}
+            className={`px-5 py-1.5 rounded-full text-(length:--text-body-sm) font-medium transition-all duration-200 cursor-pointer ${
+              isActive
+                ? 'bg-surface-primary text-primary shadow-sm border border-border-subtle/60'
+                : 'text-secondary hover:text-primary hover:bg-surface-primary/40'
+            }`}
+          >
+            {filter}
+          </button>
+        );
+      })}
     </div>
   );
 };

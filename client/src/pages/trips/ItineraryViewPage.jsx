@@ -1,12 +1,13 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { getTripItinerary } from '../../api/trips_api';
 import Button from '../../components/common/Button';
-import { ArrowLeft, Edit2, Calendar } from 'lucide-react';
+import { ArrowLeft, Edit2, Calendar, Share2, Plus } from 'lucide-react';
 import ItineraryToolbar from '../../components/itinerary/ItineraryToolbar';
-import ItineraryActivityRow from '../../components/itinerary/ItineraryActivityRow';
 import BudgetSummary from '../../components/itinerary/BudgetSummary';
 import CalendarOverlay from '../../components/calendar/CalendarOverlay';
+import ItineraryDayAccordion from '../../components/itinerary/ItineraryDayAccordion';
 
 const ItineraryViewPage = () => {
   const { id } = useParams();
@@ -23,6 +24,9 @@ const ItineraryViewPage = () => {
   const [groupBy, setGroupBy] = useState('Day');
   const [filter, setFilter] = useState('All');
   const [sortBy, setSortBy] = useState('Date');
+
+  // Accordion open/close state map
+  const [openSections, setOpenSections] = useState({});
 
   useEffect(() => {
     const timer = setTimeout(() => setDebouncedSearch(searchQuery), 350);
@@ -169,8 +173,8 @@ const ItineraryViewPage = () => {
 
       if (groupBy === 'Day') {
         key = `Day ${act.dayIndex}`;
-        title = `DAY ${act.dayIndex}`;
-        subtitle = act._dateObj?.toLocaleDateString(undefined, { day: 'numeric', month: 'short', timeZone: 'UTC' }) + (act.cityName ? ` • ${act.cityName}` : '');
+        title = `DAY ${String(act.dayIndex).padStart(2, '0')}`;
+        subtitle = act._dateObj?.toLocaleDateString('en-US', { day: 'numeric', month: 'short', timeZone: 'UTC' }).toUpperCase() + (act.cityName ? ` · ${act.cityName.toUpperCase()}` : '');
       } else if (groupBy === 'City') {
         key = act.cityName;
         title = act.cityName.toUpperCase();
@@ -192,19 +196,84 @@ const ItineraryViewPage = () => {
     return Object.values(groups);
   }, [processedActivities, groupBy]);
 
+  // Auto-expand first day with activities by default
+  useEffect(() => {
+    if (!groupedSections || groupedSections.length === 0) return;
+
+    setOpenSections(prev => {
+      if (Object.keys(prev).length > 0) return prev;
+
+      let defaultIdx = groupedSections.findIndex(sec => sec.activities && sec.activities.length > 0);
+      if (defaultIdx === -1) defaultIdx = 0;
+
+      return { [defaultIdx]: true };
+    });
+  }, [groupedSections]);
+
+  const toggleSection = (idx) => {
+    setOpenSections(prev => ({
+      ...prev,
+      [idx]: !prev[idx]
+    }));
+  };
+
   // Budget Calc
   const totalPlannedExpenses = useMemo(() => {
     return flatActivities.reduce((sum, act) => sum + (act._isEmptyDay ? 0 : act.expense), 0);
   }, [flatActivities]);
 
+  // Metadata Strings
+  const dateRangeStr = useMemo(() => {
+    const sStr = itinerary?.trip?.startDate;
+    const eStr = itinerary?.trip?.endDate || sStr;
+    if (!sStr) return '';
+    try {
+      const s = new Date(sStr);
+      const e = new Date(eStr);
+      if (isNaN(s.getTime())) return '';
+      const sFormatted = s.toLocaleDateString('en-US', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+      const eFormatted = e.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+      return `${sFormatted} — ${eFormatted}`;
+    } catch (e) {
+      return '';
+    }
+  }, [itinerary]);
+
+  const routeString = useMemo(() => {
+    if (itinerary?.stops?.length) {
+      const names = itinerary.stops.map(s => s.city?.name).filter(Boolean);
+      if (names.length > 0) return names.join(' → ');
+    }
+    if (itinerary?.trip?.cities?.length) {
+      const names = itinerary.trip.cities.map(c => c.name || c.cityName).filter(Boolean);
+      if (names.length > 0) return names.join(' → ');
+    }
+    return null;
+  }, [itinerary]);
+
+  const destinationCount = useMemo(() => {
+    if (itinerary?.stops?.length) return itinerary.stops.length;
+    if (itinerary?.trip?.cities?.length) return itinerary.trip.cities.length;
+    return 1;
+  }, [itinerary]);
+
+  const handleShare = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href);
+      toast.success('Trip link copied to clipboard!');
+    } else {
+      toast.success('Sharing link ready.');
+    }
+  };
 
   if (loading) {
     return (
-      <div className="w-full max-w-6xl mx-auto pb-20 animate-pulse pt-6">
-        <div className="h-10 w-48 bg-surface-muted mb-8 rounded"></div>
-        <div className="h-16 w-full bg-surface-muted mb-12 rounded-[var(--radius-xl)]"></div>
+      <div className="w-full max-w-[1400px] mx-auto pb-20 animate-pulse pt-6 px-4 sm:px-6 lg:px-8 font-sans">
+        <div className="h-6 w-28 bg-surface-muted mb-4 rounded-full"></div>
+        <div className="h-10 w-3/4 bg-surface-muted mb-4 rounded-md"></div>
+        <div className="h-16 w-full bg-surface-muted mb-6 rounded-xl"></div>
         {[1, 2, 3].map(i => (
-          <div key={i} className="h-32 bg-surface-muted mb-6 rounded-md"></div>
+          <div key={i} className="h-16 bg-surface-muted mb-3 rounded-xl"></div>
         ))}
       </div>
     );
@@ -212,9 +281,11 @@ const ItineraryViewPage = () => {
 
   if (error || !itinerary) {
     return (
-      <div className="w-full max-w-6xl mx-auto pb-20 pt-12 text-center">
-        <p className="text-secondary mb-6">{error || 'Journey not found.'}</p>
-        <Button onClick={() => navigate('/trips')} variant="secondary">Return to My Trips</Button>
+      <div className="w-full max-w-[1400px] mx-auto pb-20 pt-12 text-center px-4 font-sans">
+        <p className="text-secondary mb-6 text-sm font-sans">{error || 'Journey not found.'}</p>
+        <Button onClick={() => navigate('/trips')} variant="secondary" className="!w-auto px-6 text-xs cursor-pointer font-sans">
+          Return to My Trips
+        </Button>
       </div>
     );
   }
@@ -222,24 +293,65 @@ const ItineraryViewPage = () => {
   const selectedPlaceTitle = itinerary.trip?.title || 'Selected Place';
 
   return (
-    <div className="w-full max-w-6xl mx-auto pb-24 pt-6">
+    <div className="w-full max-w-[1400px] mx-auto pb-20 pt-6 sm:pt-8 px-4 sm:px-6 lg:px-8 font-sans">
       
-      {/* Top Nav */}
-      <div className="flex items-center justify-between mb-6">
-        <button onClick={() => navigate('/trips')} className="flex items-center gap-2 text-secondary hover:text-primary transition-colors text-sm font-medium">
-          <ArrowLeft size={16} /> My Trips
-        </button>
-        <div className="flex items-center gap-3">
-          <Button variant="secondary" onClick={() => setIsCalendarOpen(true)} className="flex items-center gap-2 !px-4">
-            <Calendar size={14} /> Calendar
+      {/* Top Back Link */}
+      <button 
+        onClick={() => navigate('/trips')} 
+        className="inline-flex items-center gap-1.5 text-xs text-secondary hover:text-primary transition-colors font-medium mb-6 cursor-pointer font-sans"
+      >
+        <ArrowLeft size={14} /> My Trips
+      </button>
+
+      {/* Page Header */}
+      <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6 pb-6 border-b border-border-subtle/50">
+        <div className="space-y-1.5">
+          <span className="text-[11px] font-semibold tracking-wider text-terracotta uppercase block font-sans">
+            JOURNEY ITINERARY
+          </span>
+          <h1 className="font-display font-normal text-3xl sm:text-4xl lg:text-5xl text-primary leading-tight">
+            {selectedPlaceTitle}
+          </h1>
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap text-xs sm:text-sm text-secondary font-medium pt-1 font-sans">
+            {dateRangeStr && <span>{dateRangeStr}</span>}
+            {dateRangeStr && <span className="text-stone/40">•</span>}
+            <span>{destinationCount} {destinationCount === 1 ? 'destination' : 'destinations'}</span>
+            {routeString && <span className="text-stone/40">•</span>}
+            {routeString && <span className="text-primary font-semibold">{routeString}</span>}
+          </div>
+        </div>
+
+        {/* Compact Header Actions */}
+        <div className="flex items-center gap-2 shrink-0 pt-1 md:pt-0 font-sans">
+          <Button 
+            variant="secondary" 
+            onClick={() => setIsCalendarOpen(true)} 
+            className="inline-flex items-center gap-1.5 !px-3 !py-1.5 text-xs font-medium cursor-pointer font-sans shadow-2xs"
+            aria-label="Open trip calendar"
+          >
+            <Calendar size={14} className="shrink-0 text-current" />
+            <span>Calendar</span>
           </Button>
-          <Button variant="secondary" onClick={() => navigate(`/builder/${id}`)} className="flex items-center gap-2 !px-4">
-            <Edit2 size={14} /> Edit itinerary
+          <Button 
+            variant="secondary" 
+            onClick={() => navigate(`/builder/${id}`)} 
+            className="flex items-center gap-1.5 !px-3 !py-1.5 text-xs font-medium cursor-pointer font-sans shadow-2xs"
+            aria-label="Edit itinerary"
+          >
+            <Edit2 size={13} /> Edit
+          </Button>
+          <Button 
+            variant="secondary" 
+            onClick={handleShare} 
+            className="flex items-center gap-1.5 !px-3 !py-1.5 text-xs font-medium cursor-pointer font-sans shadow-2xs"
+            aria-label="Share journey"
+          >
+            <Share2 size={13} /> Share
           </Button>
         </div>
       </div>
 
-      {/* Toolbar */}
+      {/* Controls Bar */}
       <ItineraryToolbar 
         searchQuery={searchQuery} onSearchChange={setSearchQuery}
         groupBy={groupBy} onGroupByChange={setGroupBy}
@@ -248,69 +360,52 @@ const ItineraryViewPage = () => {
         categories={categories}
       />
 
-      {/* Selected Place Header */}
-      <h1 className="font-display text-(length:--text-heading-md) text-primary mb-8 border-b border-border-default pb-4">
-        Itinerary for {selectedPlaceTitle}
-      </h1>
+      {/* Editorial Budget Snapshot */}
+      <BudgetSummary 
+        totalExpense={totalPlannedExpenses} 
+        budget={itinerary.trip?.total_budget} 
+        tripId={id}
+      />
 
-      <BudgetSummary totalExpense={totalPlannedExpenses} budget={itinerary.trip?.total_budget} />
-
-      {flatActivities.length === 0 ? (
-        <div className="py-24 text-center border border-dashed border-border-strong rounded-[var(--radius-2xl)]">
-          <p className="text-secondary mb-6">No activities planned yet.</p>
-          <Button onClick={() => navigate(`/builder/${id}`)}>Edit itinerary →</Button>
+      {/* Main Itinerary Content */}
+      <div className="mt-10">
+        <div className="flex items-baseline justify-between mb-6">
+          <h2 className="font-display font-normal text-3xl sm:text-4xl text-primary">
+            Your Itinerary
+          </h2>
+          <span className="font-sans text-xs sm:text-sm text-secondary font-medium">
+            {groupedSections.length} {groupedSections.length === 1 ? 'section' : 'sections'} · {destinationCount} {destinationCount === 1 ? 'destination' : 'destinations'}
+          </span>
         </div>
-      ) : groupedSections.length === 0 ? (
-        <div className="py-16 text-center text-secondary border border-dashed border-border-strong rounded-[var(--radius-2xl)]">
-          No activities match your filters.
-        </div>
-      ) : (
-        <div className="flex flex-col gap-12">
-          {groupedSections.map((section, idx) => (
-            <div key={idx}>
-              {/* Section Header */}
-              <div className="flex items-end justify-between border-b-2 border-border-strong pb-2 mb-2">
-                <div>
-                  <h3 className="font-display text-(length:--text-heading-sm) text-primary leading-none">
-                    {section.title}
-                  </h3>
-                  {section.subtitle && (
-                    <span className="text-(length:--text-caption) text-secondary font-bold uppercase tracking-widest mt-1.5 block">
-                      {section.subtitle}
-                    </span>
-                  )}
-                </div>
-                {section.totalExpense > 0 && (
-                  <div className="text-(length:--text-body) font-medium text-stone">
-                    {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(section.totalExpense)}
-                  </div>
-                )}
-              </div>
 
-              {/* Table Column Headers (Desktop) */}
-              {section.activities.length > 0 && (
-                <div className="hidden sm:flex justify-between text-[10px] font-bold text-secondary uppercase tracking-widest px-4 pb-2 border-b border-border-subtle pt-2">
-                  <div>Physical Activity</div>
-                  <div>Expense</div>
-                </div>
-              )}
-
-              {/* Activities */}
-              <div className="flex flex-col">
-                {section.activities.length === 0 ? (
-                  <div className="py-4 text-secondary/70 text-(length:--text-body-sm) italic px-4 border-b border-border-subtle">
-                    No activities planned for this day.
-                  </div>
-                ) : (
-                  section.activities.map(act => (
-                    <ItineraryActivityRow key={act.id || act._id} activity={act} />
-                  ))
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+        {flatActivities.length === 0 ? (
+          <div className="py-16 text-center border border-dashed border-border-subtle rounded-[var(--radius-2xl)] bg-surface-primary/40 px-6 font-sans">
+            <p className="font-sans text-secondary text-xs sm:text-sm mb-4 leading-relaxed max-w-sm mx-auto">
+              No activities planned for this itinerary yet.
+            </p>
+            <Button onClick={() => navigate(`/builder/${id}`)} className="!w-auto px-5 py-2 text-xs font-medium cursor-pointer font-sans">
+              + Plan activities
+            </Button>
+          </div>
+        ) : groupedSections.length === 0 ? (
+          <div className="py-12 text-center text-secondary text-xs sm:text-sm border border-dashed border-border-subtle rounded-[var(--radius-2xl)] bg-surface-primary/40 font-sans">
+            No activities match your filters.
+          </div>
+        ) : (
+          <div className="space-y-3">
+            {groupedSections.map((section, idx) => (
+              <ItineraryDayAccordion
+                key={idx}
+                id={idx}
+                section={section}
+                isOpen={!!openSections[idx]}
+                onToggle={() => toggleSection(idx)}
+                tripId={id}
+              />
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* Calendar Overlay */}
       <CalendarOverlay 

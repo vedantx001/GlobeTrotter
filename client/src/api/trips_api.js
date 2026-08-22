@@ -1,5 +1,7 @@
 import axiosInstance from './axios';
 import { mockDestinations } from '../data/mockData';
+import citiesData from '../data/cities.json';
+import countriesData from '../data/countries.json';
 
 export const createTrip = async (payload) => {
   try {
@@ -20,8 +22,13 @@ export const getTripSuggestions = async () => {
     const response = await axiosInstance.get('/cities');
     return response.data;
   } catch (error) {
-    console.warn("Backend unavailable. Returning mock destinations.");
-    return mockDestinations.slice(0, 3);
+    console.warn("Backend unavailable. Returning JSON dataset destinations.");
+    const countryMap = new Map(countriesData.map(c => [c.id, c.name]));
+    return citiesData.map(city => ({
+      ...city,
+      country: countryMap.get(city.countryId) || city.region || 'International',
+      image: city.imageUrl || mockDestinations.find(m => m.name.toLowerCase() === city.name.toLowerCase())?.image || null
+    }));
   }
 };
 
@@ -183,6 +190,24 @@ export const getTrips = async () => {
     const uniqueTrips = Array.from(new Map(trips.map(item => [item.id, item])).values());
     // Sort newest to oldest
     return uniqueTrips.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
+  }
+};
+
+export const updateTrip = async (tripId, payload) => {
+  try {
+    const response = await axiosInstance.put(`/trips/${tripId}`, payload);
+    return response.data;
+  } catch (error) {
+    console.warn("Backend unavailable. Mocking trip update.");
+    try {
+      const savedKey = `mock_trip_${tripId}`;
+      const existing = localStorage.getItem(savedKey);
+      const updatedData = existing ? { ...JSON.parse(existing), ...payload } : { id: tripId, ...payload };
+      localStorage.setItem(savedKey, JSON.stringify(updatedData));
+      return { data: updatedData };
+    } catch (e) {
+      return { data: { id: tripId, ...payload } };
+    }
   }
 };
 
