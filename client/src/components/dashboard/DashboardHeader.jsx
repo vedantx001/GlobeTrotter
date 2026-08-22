@@ -1,6 +1,7 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { LogOut, User } from 'lucide-react';
+import logo from '../../assets/logo.png';
 
 const DashboardHeader = () => {
   const { user, logout } = useAuth();
@@ -20,8 +21,13 @@ const DashboardHeader = () => {
     <header className="sticky top-0 z-50 bg-ivory/80 backdrop-blur-md border-b border-border-subtle">
       <div className="w-full max-w-[var(--content-max-width)] mx-auto px-[var(--page-padding)] h-16 flex items-center justify-between">
         <div className="flex items-center gap-10">
-          <Link to="/dashboard" className="font-display text-(length:--text-heading-sm) text-primary tracking-tight">
-            GlobeTrotter
+          <Link to="/dashboard" className="flex items-center" style={{ height: '100%' }}>
+            <img 
+              src={logo} 
+              alt="GlobeTrotter Logo" 
+              className="mix-blend-multiply"
+              style={{ height: '40px', width: 'auto', objectFit: 'contain' }} 
+            />
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             <NavLink to="/dashboard" end className={navClasses}>Dashboard</NavLink>
