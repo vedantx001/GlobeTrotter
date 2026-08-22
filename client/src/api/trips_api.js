@@ -114,3 +114,60 @@ export const searchActivities = async (params) => {
     ];
   }
 };
+
+export const getTrips = async () => {
+  try {
+    const response = await axiosInstance.get('/trips');
+    return response.data;
+  } catch (error) {
+    console.warn("Backend unavailable. Mocking trips.");
+    const trips = [];
+    
+    // Load local storage trips first
+    try {
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith('mock_trip_')) {
+          trips.push(JSON.parse(localStorage.getItem(key)));
+        }
+      }
+    } catch(e) {}
+    
+    // Add default mock trips
+    trips.push({
+      id: 'mock-trip-future',
+      title: 'Autumn in Europe',
+      startDate: '2026-09-12',
+      endDate: '2026-09-25',
+      destinations: [{}, {}, {}],
+      total_budget: 5200,
+      coverImage: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80&w=1000'
+    });
+
+    trips.push({
+      id: 'mock-trip-past',
+      title: 'Spring in Tokyo',
+      startDate: '2025-03-15',
+      endDate: '2025-03-25',
+      destinations: [{}, {}],
+      total_budget: 3500,
+      coverImage: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&q=80&w=1000'
+    });
+    
+    // Deduplicate by ID
+    const uniqueTrips = Array.from(new Map(trips.map(item => [item.id, item])).values());
+    // Sort newest to oldest
+    return uniqueTrips.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
+  }
+};
+
+export const deleteTrip = async (tripId) => {
+  try {
+    const response = await axiosInstance.delete(`/trips/${tripId}`);
+    return response.data;
+  } catch (error) {
+    console.warn("Backend unavailable. Mocking trip deletion.");
+    try { localStorage.removeItem(`mock_trip_${tripId}`); } catch(e) {}
+    return { success: true };
+  }
+};

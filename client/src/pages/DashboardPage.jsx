@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { getDashboardTrips, getRecommendedDestinations } from '../api/dashboard_api';
 import DashboardHero from '../components/dashboard/DashboardHero';
 import DashboardStat from '../components/dashboard/DashboardStat';
-import TripCard from '../components/dashboard/TripCard';
+import TripCard from '../components/trips/TripCard';
 import DestinationCard from '../components/dashboard/DestinationCard';
 import Button from '../components/common/Button';
 import { Map, Plane } from 'lucide-react';

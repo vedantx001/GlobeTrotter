@@ -8,6 +8,7 @@ import ProtectedRoute from './ProtectedRoute';
 import DashboardPage from '../pages/DashboardPage';
 import CreateTripPage from '../pages/trips/CreateTripPage';
 import ItineraryBuilderPage from '../pages/trips/ItineraryBuilderPage';
+import MyTripsPage from '../pages/trips/MyTripsPage';
 
 const AppRoutes = () => {
   return (
@@ -27,8 +28,13 @@ const AppRoutes = () => {
       <Route element={<ProtectedRoute />}>
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/trips" element={<MyTripsPage />} />
           <Route path="/trips/new" element={<CreateTripPage />} />
           <Route path="/builder/:tripId" element={<ItineraryBuilderPage />} />
+          
+          {/* Future Route Placeholders (Prevent 404 redirect) */}
+          <Route path="/trips/:id" element={null} />
+          <Route path="/trips/:id/edit" element={null} />
         </Route>
       </Route>
 
