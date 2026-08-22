@@ -41,43 +41,38 @@ The platform combines itinerary planning, destination discovery, budgeting, trip
 
 ## 📸 Screenshots / Demo Gallery
 
-> **Note:** Place your high-resolution screenshots in a `/screenshots` folder at the root of the repository to render them below.
-
 ### 1. Login Page
-![Login Page](./screenshots/login.png)
+![Login Page](./client/public/screenshots/login.png)
 
 ### 2. Dashboard
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./client/public/screenshots/dashboard.png)
 
 ### 3. Create Trip
-![Create Trip](./screenshots/create-trip.png)
+![Create Trip](./client/public/screenshots/create-trip.png)
 
 ### 4. My Trips
-![My Trips](./screenshots/my-trips.png)
+![My Trips](./client/public/screenshots/my-trips.png)
 
 ### 5. Itinerary Builder
-![Itinerary Builder](./screenshots/itinerary-builder.png)
+![Itinerary Builder](./client/public/screenshots/itinerary-builder.png)
 
 ### 6. Destination Search
-![Destination Search](./screenshots/destination-search.png)
+![Destination Search](./client/public/screenshots/destination-search.png)
 
 ### 7. Activity Search
-![Activity Search](./screenshots/activity-search.png)
+![Activity Search](./client/public/screenshots/activity-search.png)
 
 ### 8. Budget Dashboard
-![Budget Dashboard](./screenshots/budget-dashboard.png)
+![Budget Dashboard](./client/public/screenshots/budget-dashboard.png)
 
 ### 9. Timeline View
-![Timeline View](./screenshots/timeline-view.png)
+![Timeline View](./client/public/screenshots/timeline-view.png)
 
-### 10. Shared Trip Page
-![Shared Trip Page](./screenshots/shared-trip.png)
+### 10. User Profile
+![User Profile](./client/public/screenshots/user-profile.png)
 
-### 11. User Profile
-![User Profile](./screenshots/user-profile.png)
-
-### 12. Admin Dashboard
-![Admin Dashboard](./screenshots/admin-dashboard.png)
+### 11. Admin Analytics Dashboard
+![Admin Dashboard](./client/public/screenshots/admin-dashboard.png)
 
 ---
 
@@ -116,21 +111,25 @@ The GlobeTrotter architecture follows a robust client-server model. The frontend
 
 ```text
 GlobeTrotter/
-├── frontend/
+├── client/
 │   ├── src/
+│   │   ├── api/             # API client and service endpoints
 │   │   ├── components/      # Reusable UI components
-│   │   ├── pages/           # Main view components
-│   │   ├── routes/          # Application routing setup
-│   │   ├── services/        # API client and external services
-│   │   └── utils/           # Helper functions and constants
+│   │   ├── context/         # Auth and state providers
+│   │   ├── pages/           # Application views and pages
+│   │   ├── routes/          # React Router route configuration
+│   │   └── utils/           # Helper functions and styling constants
 │   └── package.json
-└── backend/
+└── server/
+    ├── prisma/              # Prisma ORM schema and seeders
     ├── src/
-    │   ├── config/          # Database and environment configurations
-    │   ├── controllers/     # Request handlers and business logic
-    │   ├── middleware/      # Auth and error handling middleware
+    │   ├── constants/       # Role and status constants
+    │   ├── controllers/     # API request handlers
+    │   ├── middleware/      # Authentication and error middleware
     │   ├── routes/          # Express route definitions
-    │   └── validators/      # Request payload validation schemas
+    │   ├── services/        # Business logic & database queries
+    │   ├── utils/           # JWT, response & Prisma client utilities
+    │   └── validators/      # Payload validation schemas
     └── package.json
 ```
 
@@ -141,22 +140,28 @@ GlobeTrotter/
 Follow these steps to run GlobeTrotter locally on your machine.
 
 ### 1. Database Setup
-Ensure you have MySQL installed and running. Create a new database for the project (e.g., `globetrotter_db`). Execute the provided SQL schema file (if applicable) to seed the initial tables.
-
-### 2. Backend Setup
-Navigate to the backend directory, install dependencies, and start the development server.
+Ensure you have MySQL installed and running. Create the database (e.g., `globetrotter`) and apply migrations or seed data:
 
 ```bash
-cd backend
+cd server
+npm run prisma:generate
+npm run seed
+```
+
+### 2. Backend Setup
+Navigate to the `server` directory, install dependencies, and start the development server:
+
+```bash
+cd server
 npm install
 npm run dev
 ```
 
 ### 3. Frontend Setup
-In a new terminal window, navigate to the frontend directory, install dependencies, and start the Vite development server.
+In a new terminal window, navigate to the `client` directory, install dependencies, and start the Vite development server:
 
 ```bash
-cd frontend
+cd client
 npm install
 npm run dev
 ```
@@ -165,12 +170,12 @@ npm run dev
 
 ## 🔐 Environment Variables
 
-Create a `.env` file in both the `backend` and `frontend` directories using the examples below.
+Create a `.env` file in both the `server` and `client` directories using the examples below.
 
-### Backend (`backend/.env`)
+### Backend (`server/.env`)
 ```env
 # Database Configuration
-DATABASE_URL=mysql://root:password@localhost:3306/globetrotter_db
+DATABASE_URL="mysql://root:password@localhost:3306/globetrotter"
 
 # Authentication
 JWT_SECRET=your_super_secret_jwt_key_here
@@ -179,10 +184,10 @@ JWT_SECRET=your_super_secret_jwt_key_here
 PORT=5000
 ```
 
-### Frontend (`frontend/.env`)
+### Frontend (`client/.env`)
 ```env
 # API Endpoint
-VITE_API_URL=http://localhost:5000/api
+VITE_API_BASE_URL=http://localhost:5000/api
 ```
 
 ---
