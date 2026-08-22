@@ -5,20 +5,20 @@ import { getDashboardTrips, getRecommendedDestinations } from '../api/dashboard_
 import DashboardHero from '../components/dashboard/DashboardHero';
 import DashboardStat from '../components/dashboard/DashboardStat';
 import TripCard from '../components/trips/TripCard';
-import DestinationCard from '../components/dashboard/DestinationCard';
 import Button from '../components/common/Button';
 import { Map, Plane } from 'lucide-react';
+import mapsCitiesImg from '../assets/maps_cities.jpeg';
 
 const REGIONS = ['All', 'Europe', 'Asia', 'Americas', 'Africa', 'Middle East', 'Oceania'];
 
 const DashboardPage = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
-  
+
   const [trips, setTrips] = useState([]);
   const [destinations, setDestinations] = useState([]);
   const [selectedRegion, setSelectedRegion] = useState('All');
-  
+
   const [loadingTrips, setLoadingTrips] = useState(true);
   const [loadingDestinations, setLoadingDestinations] = useState(true);
   const [tripsError, setTripsError] = useState(null);
@@ -37,7 +37,7 @@ const DashboardPage = () => {
         setLoadingTrips(false);
       }
     };
-    
+
     fetchTrips();
   }, []);
 
@@ -54,7 +54,7 @@ const DashboardPage = () => {
         setLoadingDestinations(false);
       }
     };
-    
+
     fetchDestinations();
   }, [selectedRegion]);
 
@@ -143,50 +143,15 @@ const DashboardPage = () => {
           <h2 className="font-display text-(length:--text-heading-md) text-primary leading-none mb-6">
             Explore Destinations
           </h2>
-          
-          {/* Region Selector */}
-          <div className="flex overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 gap-2 hide-scrollbar">
-            {REGIONS.map(region => (
-              <button
-                key={region}
-                onClick={() => setSelectedRegion(region)}
-                className={`whitespace-nowrap px-4 py-2 rounded-full text-(length:--text-body-sm) transition-colors border ${
-                  selectedRegion === region 
-                    ? 'bg-obsidian text-warm-white border-obsidian shadow-md' 
-                    : 'bg-warm-white text-secondary border-border-subtle hover:border-border-strong hover:text-primary'
-                }`}
-              >
-                {region}
-              </button>
-            ))}
-          </div>
         </div>
 
-        {loadingDestinations ? (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {[1, 2, 3, 4].map(i => (
-              <div key={i} className="h-64 md:h-72 bg-surface-muted rounded-[var(--radius-2xl)] animate-pulse" />
-            ))}
-          </div>
-        ) : destinationsError ? (
-          <div className="p-8 border border-border-default rounded-[var(--radius-2xl)] bg-surface-secondary text-center">
-            <p className="text-secondary">{destinationsError}</p>
-          </div>
-        ) : destinations.length > 0 ? (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {destinations.slice(0, 8).map((dest, idx) => (
-              <DestinationCard key={dest.id || dest._id || idx} destination={dest} />
-            ))}
-          </div>
-        ) : (
-          <div className="py-12 px-6 border border-border-subtle rounded-[var(--radius-2xl)] bg-warm-white flex flex-col items-center justify-center text-center">
-            <div className="w-12 h-12 bg-surface-muted rounded-full flex items-center justify-center mb-3 text-stone">
-              <Map size={20} />
-            </div>
-            <p className="text-primary font-medium mb-1">No destinations found.</p>
-            <p className="text-secondary text-(length:--text-body-sm)">Try selecting a different region.</p>
-          </div>
-        )}
+        <div className="w-full mt-4">
+          <img 
+            src={mapsCitiesImg} 
+            alt="Explore Destinations Map" 
+            className="w-full h-auto max-h-[600px] object-contain mix-blend-multiply" 
+          />
+        </div>
       </section>
     </div>
   );
