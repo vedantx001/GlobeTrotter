@@ -1,6 +1,6 @@
 <div align="center">
   
-# 🌍 GlobeTrotter – AI-Powered Personalized Travel Planning Platform
+# 🌍 GlobeTrotter – Personalized Travel Planning Platform
 
 > **Plan Smarter. Travel Better.**
 
@@ -17,7 +17,7 @@
 
 ## 📖 Project Description
 
-GlobeTrotter is an AI-powered travel planning platform that helps travelers create personalized multi-city itineraries, manage budgets, discover destinations, organize activities, and share trips with others through public itinerary links. 
+GlobeTrotter is an travel planning platform that helps travelers create personalized multi-city itineraries, manage budgets, discover destinations, organize activities, and share trips with others through public itinerary links. 
 
 The platform combines itinerary planning, destination discovery, budgeting, trip collaboration, and analytics into a single, seamless travel experience.
 
@@ -213,8 +213,6 @@ For evaluation and demonstration purposes, you can access the Admin Analytics Da
 - **Email:** `admin@gmail.com`
 - **Password:** `admin@password`
 
-> **⚠️ Warning:** These credentials are for demo purposes only. Please ensure they are removed or changed in a production environment.
-
 ---
 
 ## 🤖 AI Usage Disclosure
@@ -249,14 +247,12 @@ We are constantly looking to expand GlobeTrotter's capabilities. Planned future 
 
 | Name | Role | Responsibility |
 | :--- | :--- | :--- |
-| **[Your Name/Teammate 1]** | Lead Backend Developer | API Design, Authentication, Server Architecture |
-| **[Your Name/Teammate 2]** | Lead Frontend Developer | UI/UX Implementation, State Management |
-| **[Your Name/Teammate 3]** | Database Engineer | Schema Design, Query Optimization, DB Administration |
+| **[Vedant Patel]** | Team Lead | API Design, Authentication, System Architecture |
+| **[Vraj Patel]** | Lead Frontend Developer | UI/UX Implementation, State Management |
+| **[Aryan Prajapati]** | Lead Backend Developer | Schema Design, API Design |
 
 ---
 
 ## 🙏 Thank You
 
 Thank you to the judges, mentors, and all early users for your support and feedback during this hackathon! We poured our hearts into building a platform we genuinely want to use for our own travels.
-
-*Built with passion, curiosity, and countless cups of coffee ☕ by Team GlobeTrotter.*
