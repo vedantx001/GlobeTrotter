@@ -32,8 +32,8 @@ const Modal = ({ isOpen, onClose, title, children, maxWidth = 'max-w-md' }) => {
         aria-modal="true"
         aria-labelledby="modal-title"
       >
-        <div className="flex shrink-0 items-center justify-between p-6 border-b border-border-subtle">
-          <h2 id="modal-title" className="font-display text-(length:--text-heading-sm) text-primary">
+        <div className="flex shrink-0 items-center justify-between p-5 sm:p-6 border-b border-border-subtle">
+          <h2 id="modal-title" className="font-display text-xl sm:text-2xl text-primary font-medium tracking-tight">
             {title}
           </h2>
           <button
