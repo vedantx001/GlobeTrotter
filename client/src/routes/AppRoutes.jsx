@@ -10,6 +10,7 @@ import CreateTripPage from '../pages/trips/CreateTripPage';
 import ItineraryBuilderPage from '../pages/trips/ItineraryBuilderPage';
 import MyTripsPage from '../pages/trips/MyTripsPage';
 import ItineraryViewPage from '../pages/trips/ItineraryViewPage';
+import CommunityPage from '../pages/community/CommunityPage';
 
 const AppRoutes = () => {
   return (
@@ -32,6 +33,7 @@ const AppRoutes = () => {
           <Route path="/trips" element={<MyTripsPage />} />
           <Route path="/trips/new" element={<CreateTripPage />} />
           <Route path="/builder/:tripId" element={<ItineraryBuilderPage />} />
+          <Route path="/community" element={<CommunityPage />} />
           
           {/* Future Route Placeholders (Prevent 404 redirect) */}
           <Route path="/trips/:id" element={<ItineraryViewPage />} />
